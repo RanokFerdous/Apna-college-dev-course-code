@@ -1,0 +1,30 @@
+/* div
+{
+    background-color: navajowhite;
+}
+
+p {
+    color: blue;
+}
+
+li {
+    color: green;
+}
+ */
+
+
+  div {
+    background-color: yellow;
+  }
+
+
+  /* form inside the 1st div
+   */
+  form {
+    background-color: red;
+  }
+
+
+ button:hover {
+    background-color: red;
+ }
