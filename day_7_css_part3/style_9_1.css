@@ -1,0 +1,28 @@
+
+
+/* NOTE */
+
+/* h1{
+    background-color: blue;
+} */
+span {
+    /* background-color: pink; */
+
+    border: 2px solid black;
+    height: 100px;
+    width: 200px;
+    padding : 50px;  /*span take just L and Right padding*/
+
+    margin:20px;   /* span tke jsut L and rihgt margin*/
+}
+
+
+
+div {
+     border: 2px solid green;
+    height: 100px;
+    width: 200px;
+    padding : 50px;
+
+    margin:20px;
+}

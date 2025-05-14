@@ -1,0 +1,15 @@
+
+h2{
+    display: inline;
+    background-color: aquamarine;
+}
+
+span{
+    display: block;
+background-color:pink    ;
+}
+
+h1{
+    display: inline;
+    background-color: aqua;
+}
