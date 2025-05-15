@@ -1,0 +1,46 @@
+
+.card {
+    width:200px;
+    height: 200px;
+
+    border: 2px solid black;
+    display: inline-block;
+    /*  inline block 2 picture or more block element take in same line */
+
+    margin: 10px;
+
+    /* for given curve : border radius use */
+
+    border-radius: 5px;
+
+    box-shadow: 0 4px 8px black;
+
+    /* box-shadow: x-offset y-offset bluradis, color_of__shadow; */
+
+
+    transition: 1s;
+    /* take 1 s : when we hover take 1 second and see they there hover effect. */
+
+}
+
+.desc{
+
+    padding: 0 2px 0 2px;
+
+    /* padding: top right bottom left; */
+
+
+}
+
+
+img {
+    width: 100%;   /*means 200px;  */
+
+    border-radius: 5px 5px 0 0 ;
+
+    /* border-radius: top right bottom left; */
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px blue;
+}

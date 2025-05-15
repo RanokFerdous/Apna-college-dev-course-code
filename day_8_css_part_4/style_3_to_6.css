@@ -1,0 +1,125 @@
+
+section{
+    margin-top:100px;
+}
+
+div{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: greenyellow;
+
+    border: 2px solid red;
+    margin: 10px;
+}
+
+div:nth-of-type(2n){
+    background-color: yellow;
+}
+
+div:nth-of-type(3n){
+    background-color: blue;
+}
+
+
+/* Transform rotate */
+
+#one {
+    transform: rotate(45deg);
+}
+
+
+/* transform scale */
+
+/* #two{
+    transform: scale(.4);
+} */
+
+/* #two{
+    transform: scale(.5,2);
+} */
+
+/* #two{
+    transform: scaleX(.4);
+} */
+
+
+#two{
+    transform: scaleY(.4);
+}
+
+
+/* class: 5 translate : move the element  */
+
+/* #three {
+
+    transform: translate(300px, 400px);
+
+    /* move elemnt wiht x axis and y axis */
+
+    /*
+} */
+
+
+   #three {
+     transform: translateX(300px);
+   }
+
+
+    #three {
+     transform: translateY(300px);
+   }
+
+    #three {
+     transform: translateX(-300px);
+   }
+
+    #three {
+     transform: translate(-300px,500px);
+   }
+
+   /* (-300px) means move left side or opposite direction  */
+
+
+
+
+
+   /* CLASS :6 TRANSFORM SKEW  ***** */
+
+    #four{
+
+        transform: skew(30deg);
+    }
+
+      #four{
+
+        transform: skew(-30deg);
+    }
+
+      #four{
+
+        transform: skew(90deg);
+    }
+
+      #four{
+
+        transform: skew(180deg);
+    }
+
+      #four{
+
+        transform: skew(290deg);
+    }
+
+      #four{
+
+        transform: skew(250deg);
+    }
+
+
+
+    /* ====================== */
+
+    #five {
+        transform: rotate(30deg)  translateX(150px);
+    }

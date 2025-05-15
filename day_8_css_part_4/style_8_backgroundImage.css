@@ -1,0 +1,32 @@
+
+div{
+    width: 400px;
+    height: 200px;
+    /* background-image: ; */
+
+    /* background-image: url( class_8_picture.png ); */
+
+    background-image: url(tower_8_class.png);
+
+    background-color: greenyellow;
+
+    margin:10px auto;
+
+
+    /* syntax:
+
+    background-size: contain /cover / auto; */
+
+
+
+     background-size: cover;
+
+        background-size: auto;
+         background-size: contain;
+
+
+        background-size: auto;
+
+
+        color: red;
+}
