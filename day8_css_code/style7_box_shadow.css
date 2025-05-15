@@ -1,0 +1,18 @@
+
+
+div {
+    width: 200px;
+    height: 50px;
+
+    text-align: center;
+
+    background-color: yellow;
+    margin: 10px auto;
+
+    box-shadow: 2px 3px  50px red;
+/* syntax:
+
+    box-shadow:  x-offset y-offset  blur-radius  color_of_blur; */
+
+
+}

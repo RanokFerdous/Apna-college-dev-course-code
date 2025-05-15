@@ -1,0 +1,65 @@
+/* div {
+    height: 200px;
+    width: 200px;
+    background-color: greenyellow;
+    transition-duration: 1s; /* changing time take 1s*/
+/*
+    transition-delay:1s;
+
+
+     margin: 0 auto;  /*   take same margin left and right side*/
+ /*      margin-top: 10px; /* take 10px margin on the top */
+
+/*
+}
+
+div:hover {
+    background-color: black;
+    border-radius:50%;
+*/
+    /* when we hover color will be change in green to black
+    and shape change ractangle to circle
+
+    */
+/*
+    margin-top: 200px; /* when hover margin will be 100px */
+
+/*
+} */
+
+
+
+
+/* =================================================== */
+
+/* ======SMOTELY TRANSATION ER JONNNO  */
+
+div {
+    height: 200px;
+    width: 200px;
+    background-color: greenyellow;
+
+    margin: 0 auto;
+    margin-top: 10px;
+    transition: margin-top 2s ease-out .2s;
+
+
+}
+
+div:hover {
+
+    margin-top: 400px;
+    background-color: pink;
+
+
+}
+
+
+/*
+LEARN MORE FOR MDN:
+case,
+case-in,
+case-in-out,
+case-out
+
+*/
