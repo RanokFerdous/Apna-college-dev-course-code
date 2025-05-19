@@ -1,0 +1,122 @@
+
+
+.box{
+    height: 100px;
+    width: 300px;
+    background-color: pink;
+
+    /* properties for animation  */
+
+    /* animation-name: fontAnimation; */
+
+    /* animation-name: colorAnimate; */
+    /* animation-name: widthAnimate; */
+
+    animation-name: colAnimate2;
+
+    animation-duration:3s ;
+    animation-timing-function: ease-in;
+    /* animation-delay:0; */
+
+    animation-delay: 0;
+    /* animation-iteration-count: 3; how many time same proces repeat */
+
+    animation-iteration-count: infinite;
+
+    animation-direction:normal;
+
+    /* animation-direction : normal/ alternate /alternate reverse / reverse */
+
+
+
+}
+/*  Syntax : for creating animation
+
+@keyframe fontAnimation {
+
+  from {
+          /* starting condition
+
+}
+to {
+    /* ending condition
+}
+}
+
+*/
+
+/* change font size 20px to 40 px number of iteration time. */
+@keyframes fontAnimation {
+    from {
+        font-size: 20px;
+    }
+    to {
+        font-size:40px;
+    }
+
+}
+
+
+/* create an animation for color green to blue continuously for number of iteration time.
+ */
+@keyframes colorAnimate {
+
+    from {
+        background-color: green;
+    }
+    to {
+        background-color: blue;
+    }
+}
+
+/* work:
+when run:
+change width 20px to 400px  left to right
+continuously 3 times
+*/
+@keyframes widthAnimate
+{
+    from {
+        width: 10px;
+    }
+    to {
+        width: 400px;
+    }
+
+}
+
+
+
+/* class 11 : 3 stage transation of animation
+
+: green to yellow to blue */
+
+@keyframes colAnimate  {
+    0% {
+        background-color: green;
+    }
+    50% {
+        background-color: yellow;
+    }
+    100% {
+        background-color: blue;
+    }
+
+}
+
+
+@keyframes colAnimate2  {
+    0% {
+        background-color: green;
+    }
+    50% {
+        background-color: yellow;
+    }
+    80%{
+        background-color: red;
+    }
+    100% {
+        background-color: blue;
+    }
+
+}

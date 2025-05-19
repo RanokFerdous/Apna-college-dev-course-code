@@ -1,0 +1,60 @@
+
+h1{
+    background-color: yellow;
+    border: 2px solid black;
+}
+
+/* media query condiron  */
+
+/* if width == 400px , then it's color will be aqua */
+@media (width:400px){
+    h1{
+        background-color: aqua;
+    }
+
+    div {
+        height: 100px;
+        width: 100px;
+        background-color: blue;
+    }
+
+
+}
+
+/* min-width: 700px;   */
+
+@media (min-width: 700px) {
+    h1 {
+        background-color: greenyellow;
+        font-style: italic;
+    }
+}
+
+/*  */
+@media (max-width: 700px){
+    h1 {
+        background-color: pink;
+    }
+}
+
+/* for setting an range  */
+
+/*  if width is between 200px and 300px then color will be magenta  */
+@media  (min-width:200px) and ( max-width:300px){
+    h1 {
+        background-color: magenta;
+    }
+}
+
+
+
+/* class: 13 Media  if landscape then color: aqua */
+
+@media (orientation: landscape) {
+    h1{
+        background-color: brown;
+        color:blueviolet
+    }
+
+}
+
