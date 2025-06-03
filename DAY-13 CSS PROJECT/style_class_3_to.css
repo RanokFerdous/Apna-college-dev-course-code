@@ -1,0 +1,443 @@
+body{
+  font-family: "Montserrat", sans-serif;
+    margin:0;
+    background-color: #000;
+    color:#fff;  /*font color */
+
+    overflow:hidden;
+    /* hidden means: we can't scroll and can't see below content. go mdn for more :  */
+
+    font-size: 40px;
+
+}
+
+/* body {
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
+} */
+
+
+.main {
+    display: flex;
+    /* flex :  inner main div all other div will be inline */
+    height:100vh;
+    padding: .5rem;
+    /* take space from all side */
+}
+
+.sidebar{
+    /* background-color:red; */
+
+    /* background-color:green; */
+
+    /*  class: 7  */
+       background-color:#000;
+    /* grey color */
+    width:340px;
+    border-radius: 1rem;
+    margin-right: .5rem;
+
+}
+
+.main-content{
+    background-color:#121212;  /*grey color using color picker from the main spotify website */
+
+    flex:1;
+    /* flex :1 ; means all space take this div after given the space of other div. */
+    border-radius: 1rem;
+    overflow: auto;  /* see scroll bar when content is overflow in main-content div */
+
+    /* class: 9 set padding */
+
+    padding: 0 1.5rem 0 1.5rem;
+    /* set padding so card are get space  */
+
+}
+
+
+.music-player {
+    background-color:black;
+    position:fixed;
+
+
+    bottom: 0px;
+    /* this div take 0px or no space bottom  */
+    height: 72px;
+    /* 72 px see from the spotify website */
+
+    width: 100%;
+    /* for left to right part cover with yellow */
+
+
+
+
+}
+
+
+a {
+    text-decoration:none;
+
+    color:#fff;
+}
+
+
+/* class:5  css for nav bar  home and search*/
+
+.nav {
+    background-color: #121212;  /* grey color  navbar background */
+    border-radius:1rem;
+    display: flex;
+    flex-direction: column;
+    /* by default : home and search are place x axis when display flex . because by defalut flex-direction : row;
+    wehn flex-direction :column; then it place column direction  */
+
+    justify-content: center;
+
+    height:100px;
+
+    /* nav bar total height  100px*/
+
+    padding: .5rem .75rem;
+
+    /* top bottom .5rem  and left right .75rem */
+
+
+
+}
+
+
+/* here , nav-option are home and search */
+
+.nav-option{
+    line-height:2.5rem;
+    opacity:.7;
+    padding:.5rem .75rem;
+}
+
+.nav-option:hover {
+    opacity:1;
+
+}
+
+.nav-option i {
+    font-size:1.25rem;
+}
+
+.nav-option a{
+    font-size: 1rem;
+    /* for Home and Search */
+
+    margin-left:1rem;
+}
+
+
+
+
+/* class: 06   create library part */
+
+.library {
+    background-color: #121212;
+    border-radius: 1rem;
+    height: 100%;
+    margin-top:.5rem;
+    padding:.5rem .75rem;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    /* for take space betwaeen  + and ->  icons */
+
+    align-items:center;
+}
+
+.lib-option img{
+    /*  give same size like home and seearch icon */
+    height:1.25rem;
+    width:1.25rem;
+}
+
+
+
+.icons {
+    font-size:1.25rem;
+    display:flex;
+}
+
+.icons i {
+    opacity:.7;
+    margin-right: 1rem;
+    /* create space between   + and ->   */
+}
+
+.icons i:hover {
+    opacity:1;
+
+
+}
+
+
+
+
+
+
+
+/* class: 7  Library Boxes  */
+
+
+.box {
+    background-color: #232323;
+    /* light grey color */
+    height: 8rem;
+    border-radius: 0.75rem;
+
+    /* margin: .5rem 0 0.5rem 0; */
+
+    margin: .75rem 0 1.75rem 0;
+    /* top right bottom left */
+    /* create space between two box's */
+    padding: .75rem 1rem;
+
+}
+
+.box-p1 {
+    font-size: 1rem;
+    font-weight:500;
+    /*  font-weight  make font more bold and dark side  */
+}
+
+.box-p2 {
+
+    font-size:.75rem;
+    opacity:.9;
+
+}
+
+/* badge is a button  */
+.badge {
+    background-color: #fff;
+    border:none;
+    /*  we have to give border none , because by default badge has
+    border color */
+
+    border-radius: 100px;
+
+    padding: 0.25rem 1rem;
+    /* this padding create the badge radius */
+
+    font-weight: 700;
+    margin-top: 0.5rem;
+
+    height: 2rem;
+    width: fit-content;
+    /*  content will be fit in the width */
+
+
+
+    /* Day-8 sticky nav */
+
+
+}
+
+
+.dark-badge {
+    background-color: #000;
+    color:#fff;
+}
+
+/* =========class: 8 sticky nav           */
+
+.sticky-nav {
+    position : sticky;
+    top:0;
+    background-color: #121212;
+    display: flex;
+
+    justify-content: space-between;
+    /* space between create same space between all navigation bar */
+
+    align-items:center;
+
+    padding:1rem 0 1rem 0;
+/*  top right bottom left */
+
+/* from class: 10   z index  using for give top the navbar*/
+z-index: 10;
+/* who's z-index value is big , that will be top.  bydefault z index value is 0 */
+
+
+
+}
+
+.sticky-nav-icons {
+    margin-left:0.75rem;
+}
+
+.sticky-nav-options {
+    display: flex;
+    /* means all are stay row wise by default */
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.nav-item{
+
+    margin-right:1rem;
+
+}
+
+
+
+
+/* use media query  */
+
+@media  (max-width:1000px){
+    .hide {
+        display: none;
+    }
+}
+
+
+
+/* *********************class: 9 Card  */
+.card {
+    background-color: #232323;
+    width: 150px;
+    border-radius: .5rem;
+    padding:1rem;
+    margin-top:1rem;
+
+}
+
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* after setting flex-wrap: wrap;  then after complete 1 line
+    card will go next line */
+
+}
+
+.card-img {
+    width:100%;
+    border-radius:.5rem;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.card-info{
+    font-size: 0.85rem;
+    opacity: .8;
+}
+
+
+
+/* class: 10 footer line */
+
+.footer {
+    height: 300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.line{
+    width:90%;
+    height: 50%;
+    border-top: 3px solid top;
+    opacity: .7;
+
+}
+
+/* class: 11 and 12 setting up player */
+.music-player{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.album{
+    width:25%;
+    background-color: pink;
+}
+.player{
+    width: 50%;
+    background-color: orange;
+
+}
+.controls {
+    width: 25%;
+    background-color: greenyellow;
+}
+
+/* class: 12 player  */
+
+.player-controls {
+   display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+
+}
+
+.player-control-icon{
+    height: 1rem;
+    margin-right:1.75rem;
+    opacity: .7;
+}
+
+.player-control-icon:hover {
+    opacity: 1;
+}
+
+
+/* class: 13 palyback bar */
+
+.playback-bar {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.progress-bar {
+    width: 70%;
+    appearance:none;
+    /* apperence none means => all style will be gone which is
+    given by= default */
+    border-color: transparent;
+    /* transparent means:=> */
+
+    cursor:pointer;
+    /* means: show hand */
+
+
+}
+
+
+.progress-bar::-webkit-slider-runnable-track {
+    background-color: #ddd;
+    border-radius: 100px;
+    height: .2rem;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    background-color: #1bd760;
+    border-radius: 50%;
+    margin-top:-6px;
+
+    /* -6px means: it will be gone 6px up side from the current position  */
+    
+}
