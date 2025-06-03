@@ -1,0 +1,191 @@
+
+/* we want all margin and padding zero */
+
+/* sir ..........not work this code */
+* {
+    margin:0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+
+}
+
+
+.main_box {     /* sir not work this class */
+    background-image: url("photo.jpg");
+
+    /* set height  */
+    /* height: 100%; */
+    height: 100vh;
+    background-size: cover;
+
+    background-size: 50%;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+
+
+}
+
+
+.btn_one{
+     font-size:80px ;
+     font-weight: 700;
+
+     /* font weight will be between 100 to 700,  */
+
+     position: absolute;  /*means: use parent ...,but here no parents. */
+
+    left:16px;
+    line-height: 60px;
+}
+
+
+.sidebar_menu{
+    position:fixed;
+    /* left:-300px; */
+
+    height: 100vh;
+    width: 300px;
+    background-color:green;
+
+    box-shadow:  0 0  16px hotpink ;
+
+
+}
+
+.sidebar_menu .logo {
+    position:absolute;
+    width: 100%;
+    line-height: 60px;
+
+    box-shadow:  0 0  4px rgba(255,255,255,.9);
+
+
+}
+
+.sidebar_menu .logo  a {
+    position:absolute;
+    left:50px;
+    color:red;
+    text-decoration: none;  /* delete underline */
+
+    font-weight: 500;
+
+
+
+}
+.sidebar_menu .btn_two {
+
+    color:grey;
+    font-size: 25px;
+    line-height: 60px;
+
+    position: absolute;
+
+    /* opacity: 1; */
+    /* left:275px; */
+
+    cursor: pointer;
+
+}
+
+
+.sidebar_menu  .menu {
+
+    position: absolute;
+    width: 100%;
+    top:80px;
+
+}
+
+
+.sidebar_menu .menu  li {
+    margin-top: 6px;
+
+    padding:10px 20px;  /* top , bottom 10px  and left ,right 20px */
+
+
+
+}
+
+
+.sidebar_menu .menu i, a {
+    /* color: ; */
+    text-decoration: none;
+    font-size: 20px;
+
+}
+
+.sidebar_menu .menu i {
+    padding-right: 4px;
+}
+
+
+
+.sidebar_menu .social_media {
+    color: white;
+    opacity: .5;
+    position: absolute;   /* parent related . it's parents sidebar menu.   so it take 25% space from left respect to sidebar_menu.
+    if i  position : fixed;  the it take 25% place respace to full page.
+     */
+
+    left:25%;
+
+
+
+    bottom: 20px;
+
+}
+
+.sidebar_menu .social_media i {
+    color: white;
+    opacity: .5;
+     padding: 0 5px;
+
+}
+
+#check {
+    display: none;
+
+}
+
+
+/* class : 9 hover change */
+
+
+.sidebar_menu .menu li:hover {
+    box-shadow: 0 0 4px rgba(255,255,255,.5);
+
+}
+
+/* when hover then font size will be this. */
+.btn_one i :hover{
+    font-size: 40px;
+
+
+}
+
+.btn_two i:hover {
+    font-size: 30px;
+}
+
+.sidebar_menu .social_media i :hover {
+    opacity:1;
+    transform: scale(2);  /*when hover then size will be 2 tiems */
+
+}
+
+
+/* class : 9   configuring check box*/
+
+#check:checked ~ .sidebar_menu {
+    left:0;
+}
+
+#check:checked ~ .btn_one i {
+    opacity: 0;   /*means: not see */
+}
+
+
+#check:checked ~ .sidebar_menu .btn_two i {
+    opacity: 1;   /*means : see */
+}
