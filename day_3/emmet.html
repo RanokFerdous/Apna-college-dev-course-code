@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emmet Practice Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: #2c3e50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌟 Emmet Practice Sheet 🌟</h1>
+  <p style="text-align:center;">Learn and practice 20 common Emmet shortcuts</p>
+
+  <table>
+    <tr>
+      <th>Emmet Abbreviation</th>
+      <th>Expanded Code</th>
+    </tr>
+
+    <tr>
+      <td><code>!</code></td>
+      <td><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>div>p</code></td>
+      <td><pre>&lt;div&gt;
+  &lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>h1+p+p</code></td>
+      <td><pre>&lt;h1&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>ul>li*3</code></td>
+      <td><pre>&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>div#container.wrapper</code></td>
+      <td><pre>&lt;div id="container" class="wrapper"&gt;&lt;/div&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>input[type="text" placeholder="Name"]</code></td>
+      <td><pre>&lt;input type="text" placeholder="Name"&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>div>(header>h1)+main+footer</code></td>
+      <td><pre>&lt;div&gt;
+  &lt;header&gt;
+    &lt;h1&gt;&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;main&gt;&lt;/main&gt;
+  &lt;footer&gt;&lt;/footer&gt;
+&lt;/div&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>p{Hello World}</code></td>
+      <td><pre>&lt;p&gt;Hello World&lt;/p&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>a[href="https://google.com"]{Google}</code></td>
+      <td><pre>&lt;a href="https://google.com"&gt;Google&lt;/a&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>table>tr*2>td*3</code></td>
+      <td><pre>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>form>input:text+input:email+button{Submit}</code></td>
+      <td><pre>&lt;form&gt;
+  &lt;input type="text"&gt;
+  &lt;input type="email"&gt;
+  &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>ul>li.item$*3</code></td>
+      <td><pre>&lt;ul&gt;
+  &lt;li class="item1"&gt;&lt;/li&gt;
+  &lt;li class="item2"&gt;&lt;/li&gt;
+  &lt;li class="item3"&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>section>h2{Title}+p{Content}</code></td>
+      <td><pre>&lt;section&gt;
+  &lt;h2&gt;Title&lt;/h2&gt;
+  &lt;p&gt;Content&lt;/p&gt;
+&lt;/section&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>nav>ul>li*4>a{Link $}</code></td>
+      <td><pre>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=""&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=""&gt;Link 4&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>ol.type>li{Step $}*3</code></td>
+      <td><pre>&lt;ol class="type"&gt;
+  &lt;li&gt;Step 1&lt;/li&gt;
+  &lt;li&gt;Step 2&lt;/li&gt;
+  &lt;li&gt;Step 3&lt;/li&gt;
+&lt;/ol&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>img[src="image.jpg" alt="Sample"]</code></td>
+      <td><pre>&lt;img src="image.jpg" alt="Sample"&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>div>(h2{Article}+p{Description})*2</code></td>
+      <td><pre>&lt;div&gt;
+  &lt;h2&gt;Article&lt;/h2&gt;
+  &lt;p&gt;Description&lt;/p&gt;
+  &lt;h2&gt;Article&lt;/h2&gt;
+  &lt;p&gt;Description&lt;/p&gt;
+&lt;/div&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>header>h1{Logo}+nav>ul>li*3>a{Menu $}</code></td>
+      <td><pre>&lt;header&gt;
+  &lt;h1&gt;Logo&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=""&gt;Menu 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=""&gt;Menu 2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=""&gt;Menu 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</pre></td>
+    </tr>
+
+    <tr>
+      <td><code>footer>p{© 2025 MySite}</code></td>
+      <td><pre>&lt;footer&gt;
+  &lt;p&gt;© 2025 MySite&lt;/p&gt;
+&lt;/footer&gt;</pre></td>
+    </tr>
+  </table>
+
+</body>
+</html>
