@@ -1,0 +1,35 @@
+<!-- select use -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="pet-select">choose a pet:</label>
+<select name="pet" id="pet-select">
+    <option value="">--Please choose an option--</option>
+    <option value="dog">Dog</option>
+    <option value="cat">Cat</option>
+    <option value="parrot" selected> Parrot</option>
+    <!-- parrot will be selected automatic using selected -->
+    <option value="goldfish"> Goldfish</option>
+</select>
+<hr> <b>topic: range</b> <br>
+<p>Audio settings: </p>
+<div>
+    <input type="range" id="volume" name="volume" min="0" max="100" value="40" step="5" >
+    <label for="volume"> Volume</label>
+</div>
+
+<div> <input type="range" id="cowbell" name="cowbell" min="0" max="140">
+
+<label for="cowbell">Cowbell</label></div>
+
+<hr>
+
+</body>
+</html>

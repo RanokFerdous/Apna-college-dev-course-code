@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="/submit" method="post">
+  <!-- form elements go here -->
+</form>
+<form action="/register" method="post" autocomplete="on">
+
+<input type="text" name="username" placeholder="Enter username">
+
+<input type="password" name="password" placeholder="Enter password">
+
+<input type="email" name="email" placeholder="Enter email" required>
+<input type="number" name="age"  placeholder="number" min="1" max="100">
+<br> <br>
+<b>i. Date & Time Inputs</b>
+
+<input type="date" name="dob">
+<input type="time" name="meeting_time">
+<input type="datetime-local" name="appointment">
+<br><br>
+<b>ii. Radio Buttons (choose one)</b>
+
+<label><input type="radio" name="gender" value="male"> Male</label>
+<label><input type="radio" name="gender" value="female"> Female</label>
+<br>
+<b>iii. Checkbox (choose many)</b>
+
+<label><input type="checkbox" name="hobby" value="reading"> Reading</label>
+<label><input type="checkbox" name="hobby" value="sports"> Sports</label>
+<br>
+<b>iv. Dropdown (Select Menu)</b> &nbsp; &nbsp; &nbsp;
+
+<select name="country">
+  <option value="bd">Bangladesh</option>
+  <option value="jp">Japan</option>
+  <option value="us">USA</option>
+</select>
+<br>
+<b> v. Textarea (Multiline Input) ----------------------------</b>
+
+<textarea name="message" rows="4" cols="30" placeholder="Write your message"></textarea>
+<br><br>
+<b>vi. File Upload </b>
+
+<input type="file" name="resume">
+<hr><hr>
+<br><br>
+<b>1. Hidden Field</b>
+
+<input type="hidden" name="user_id" value="123">
+<br><br>
+<b>02. Buttons in Forms
+🔹 Submit Button ==></b>
+
+<input type="submit" value="Register">  or use this =>
+<button type="submit">Register</button>
+<br><br>
+<b>3.Reset Button</b>
+<input type="reset" value="Clear Form">
+<br><br>
+<b>4. Normal Button (for JS) => " when click this show Hello alert "</b>
+
+<br>
+<button type="button" onclick="alert('Hello!')">Click Me</button>
+
+<br><br>
+<b>5. Labels & Accessibility</b>  <br><br>
+
+<!-- Use <label> to connect text with inputs: -->
+<label for="username">Username:</label>
+<input type="text" id="username" name="username">
+
+<br><br>
+<b>6. Form Validation
+HTML5 gives built-in validation:</b>
+
+<input type="email" placeholder="enter email" required>
+<input type="text" pattern="[A-Za-z]{3,}" title="At least 3 letters" placeholder="enter text with fixed pattern"> <br><br>
+
+required → must be filled. &nbsp; &nbsp;
+
+pattern → regex rule. &nbsp; &nbsp;
+min, max, maxlength → input limits.
+<br><br>
+7. <b> Grouping with field set and legend *******</b> <br> <br>
+<fieldset>
+  <legend>Personal Info</legend>
+  <label>Name: <input type="text" name="name"></label>
+  <label>Email: <input type="email" name="email"></label>
+</fieldset>
+
+<br><br> <hr><hr>
+8. Example: Complete Form
+
+<form action="/submit" method="post">
+  <fieldset>
+    <legend>Registration Form</legend>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="pwd">Password:</label>
+    <input type="password" id="pwd" name="password" required><br><br>
+
+    <label>Email:</label>
+    <input type="email" name="email"><br><br>
+
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female<br><br>
+
+    <label>Hobbies:</label>
+    <input type="checkbox" name="hobby" value="reading"> Reading
+    <input type="checkbox" name="hobby" value="sports"> Sports<br><br>
+
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+      <option value="bd">Bangladesh</option>
+      <option value="jp">Japan</option>
+      <option value="us">USA</option>
+    </select><br><br>
+
+    <label>Upload CV:</label>
+    <input type="file" name="resume"><br><br>
+
+    <textarea name="message" rows="4" cols="40" placeholder="Write something..."></textarea><br><br>
+
+    <input type="submit" value="Register">
+    <input type="reset" value="Clear">
+  </fieldset>
+</form>
+
+
+</body>
+</html>

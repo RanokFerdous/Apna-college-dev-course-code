@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form with LocalStorage + Clear</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    form {
+      max-width: 500px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    select, input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="radio"] {
+      width: auto;
+      margin-right: 5px;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+    button {
+      padding: 10px 15px;
+      background: teal;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    button:hover {
+      background: darkcyan;
+    }
+    /* Live Output Box */
+    .output {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eef;
+      border: 1px solid #99c;
+      border-radius: 5px;
+      width: 500px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Form with LocalStorage + Clear Button</h2>
+
+<form id="demoForm">
+  <!-- Select -->
+  <label for="country">Choose Country:</label>
+  <select id="country" name="country">
+    <option value="Bangladesh">Bangladesh</option>
+    <option value="Japan">Japan</option>
+    <option value="USA">USA</option>
+  </select>
+
+  <!-- Radio -->
+  <label>Gender:</label>
+  <label><input type="radio" name="gender" value="Male"> Male</label>
+  <label><input type="radio" name="gender" value="Female"> Female</label>
+
+  <!-- Range -->
+  <label for="volume">Volume (0–100):</label>
+  <input type="range" id="volume" name="volume" min="0" max="100" value="50" step="5">
+
+  <!-- Textarea -->
+  <label for="message">Your Message:</label>
+  <textarea id="message" name="message" rows="4" cols="40" placeholder="Write something..."></textarea>
+
+  <button type="submit">Submit</button>
+  <button type="button" id="clearBtn">Clear Saved Data</button>
+</form>
+
+<!-- Live Preview -->
+<div class="output" id="outputBox">
+  <h3>Live Preview:</h3>
+  <p><b>Country:</b> <span id="outCountry">Bangladesh</span></p>
+  <p><b>Gender:</b> <span id="outGender">None</span></p>
+  <p><b>Volume:</b> <span id="outVolume">50</span></p>
+  <p><b>Message:</b> <span id="outMessage">None</span></p>
+</div>
+
+<script>
+  // Get references
+  const country = document.getElementById("country");
+  const genderRadios = document.querySelectorAll("input[name='gender']");
+  const volume = document.getElementById("volume");
+  const message = document.getElementById("message");
+
+  const outCountry = document.getElementById("outCountry");
+  const outGender = document.getElementById("outGender");
+  const outVolume = document.getElementById("outVolume");
+  const outMessage = document.getElementById("outMessage");
+
+  // Save data to localStorage
+  function saveData() {
+    const data = {
+      country: country.value,
+      gender: document.querySelector("input[name='gender']:checked")?.value || "None",
+      volume: volume.value,
+      message: message.value
+    };
+    localStorage.setItem("formData", JSON.stringify(data));
+  }
+
+  // Update preview
+  function updatePreview() {
+    outCountry.textContent = country.value;
+    outGender.textContent = document.querySelector("input[name='gender']:checked")?.value || "None";
+    outVolume.textContent = volume.value;
+    outMessage.textContent = message.value || "None";
+  }
+
+  // Restore data from localStorage
+  function restoreData() {
+    const stored = localStorage.getItem("formData");
+    if (stored) {
+      const data = JSON.parse(stored);
+
+      country.value = data.country;
+      volume.value = data.volume;
+      message.value = data.message;
+
+      if (data.gender !== "None") {
+        const genderRadio = document.querySelector(`input[name='gender'][value='${data.gender}']`);
+        if (genderRadio) genderRadio.checked = true;
+      }
+      updatePreview();
+    }
+  }
+
+  // Clear data and reset form
+  function clearData() {
+    localStorage.removeItem("formData");
+    document.getElementById("demoForm").reset();
+    outCountry.textContent = "Bangladesh";
+    outGender.textContent = "None";
+    outVolume.textContent = "50";
+    outMessage.textContent = "None";
+    volume.value = 50; // reset slider visually
+    alert("All saved data cleared!");
+  }
+
+
+  // Event listeners
+  country.addEventListener("change", () => { updatePreview(); saveData(); });
+  genderRadios.forEach(radio => {
+    radio.addEventListener("change", () => { updatePreview(); saveData(); });
+  });
+  volume.addEventListener("input", () => { updatePreview(); saveData(); });
+  message.addEventListener("input", () => { updatePreview(); saveData(); });
+
+  document.getElementById("demoForm").addEventListener("submit", e => {
+    e.preventDefault();
+    alert("Form submitted and saved in localStorage!");
+  });
+
+  document.getElementById("clearBtn").addEventListener("click", clearData);
+
+  // Restore on page load
+  window.addEventListener("load", restoreData);
+</script>
+
+</body>
+</html>

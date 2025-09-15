@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Table Example with thead, tbody, tfoot</title>
+  <style>
+    table {
+      width: 60%;
+      border-collapse: collapse;
+      margin: 20px auto; /* take 20px from up and bottom
+      and left-right are auto margin */
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    thead {
+      background-color: lightgray;
+      font-weight: bold;
+    }
+    tfoot {
+      background-color: #f0f0f0;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">Student Marks Table</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Roll</th>
+        <th>Name</th>
+        <th>Marks</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>101</td>
+        <td>Ranok Ferdous</td>
+        <td >85</td>
+      </tr>
+      <tr>
+        <td>102</td>
+        <td>Sarah Akter</td>
+        <td>90</td>
+      </tr>
+
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="2">Average Marks</td>
+        <td>84.3</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

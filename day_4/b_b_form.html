@@ -1,0 +1,188 @@
+
+<!-- part 2: with css feature  -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Form Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    form {
+      max-width: 500px;
+      background: #fff;
+      padding: 20px 30px;
+      margin: 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    fieldset {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 10px;
+      color: #444;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"], input[type="checkbox"] {
+      width: auto;
+      margin-right: 6px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .form-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    input[type="submit"],
+    input[type="reset"],
+    button[type="button"] {
+      width: auto;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    input[type="submit"] {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    input[type="submit"]:hover {
+      background: #1e40af;
+    }
+
+    input[type="reset"] {
+      background: #f87171;
+      color: #fff;
+    }
+
+    input[type="reset"]:hover {
+      background: #b91c1c;
+    }
+
+    button[type="button"] {
+      background: #10b981;
+      color: #fff;
+    }
+
+    button[type="button"]:hover {
+      background: #047857;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+
+  <form action="/submit" method="post">
+    <fieldset>
+      <legend>Personal Info</legend>
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter username" required>
+
+      <label for="pwd">Password:</label>
+      <input type="password" id="pwd" name="password" placeholder="Enter password" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" placeholder="Enter email" required>
+
+      <label for="age">Age:</label>
+      <input type="number" name="age" id="age" placeholder="Enter age" min="1" max="100">
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences</legend>
+
+      <label>Date of Birth:</label>
+      <input type="date" name="dob">
+
+      <label>Meeting Time:</label>
+      <input type="time" name="meeting_time">
+
+      <label>Appointment:</label>
+      <input type="datetime-local" name="appointment">
+
+      <label>Gender:</label>
+      <input type="radio" name="gender" value="male"> Male
+      <input type="radio" name="gender" value="female"> Female
+
+      <label>Hobbies:</label>
+      <input type="checkbox" name="hobby" value="reading"> Reading
+      <input type="checkbox" name="hobby" value="sports"> Sports
+
+      <label for="country">Country:</label>
+      <select id="country" name="country">
+        <option value="bd">Bangladesh</option>
+        <option value="jp">Japan</option>
+        <option value="us">USA</option>
+      </select>
+
+      <label>Message:</label>
+      <textarea name="message" rows="4" placeholder="Write something..."></textarea>
+
+      <label>Upload CV:</label>
+      <input type="file" name="resume">
+    </fieldset>
+
+    <div class="form-buttons">
+      <input type="submit" value="Register">
+      <input type="reset" value="Clear">
+      <button type="button" onclick="alert('Hello!')">Click Me</button>
+    </div>
+
+    <p class="note">* All required fields must be filled before submission.</p>
+  </form>
+
+</body>
+</html>

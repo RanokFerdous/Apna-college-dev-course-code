@@ -1,0 +1,167 @@
+<!-- Perfect 🚀 Let’s build a full HTML + CSS page that demonstrates all checkbox functionalities:
+
+✅ Basic checkboxes
+
+✅ Checked by default
+
+✅ Disabled checkbox
+
+✅ Required checkbox
+
+✅ Multiple checkboxes (group)
+
+✅ "Select All / Deselect All" checkbox with JavaScript
+
+✅ Custom styled checkboxes -->
+
+<!-- full code where we can learn all about the checkbox property  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox Examples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      padding: 20px ;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .example {
+      background: #fff;
+      padding: 15px 20px; /*up-bottom 15px, left-right 20px */
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      font-size: 15px;
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+      accent-color: #2563eb; /* modern browsers */
+    }
+
+    .styled input[type="checkbox"] {
+      accent-color: #10b981; /* green */
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #2563eb;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1e40af;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>All Checkbox Functionalities</h2>
+
+  <!-- 1. Basic Checkbox -->
+  <div class="example">
+    <h3>1. Basic Checkbox</h3>
+    <label><input type="checkbox" name="news"> Subscribe to Newsletter</label>
+  </div>
+
+  <!-- 2. Checked by Default -->
+  <div class="example">
+    <h3>2. Checked by Default</h3>
+    <label><input type="checkbox" name="updates" checked> Receive Updates</label>
+  </div>
+
+  <!-- 3. Disabled Checkbox -->
+  <div class="example">
+    <h3>3. Disabled Checkbox</h3>
+    <label><input type="checkbox" name="offer" disabled> Special Offer (disabled)</label>
+  </div>
+
+  <!-- 4. Required Checkbox -->
+  <div class="example">
+    <h3>4. Required Checkbox</h3>
+    <form>
+      <label>
+        <input type="checkbox" name="terms" required>
+        I agree to the Terms & Conditions
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- 5. Multiple Checkboxes -->
+  <div class="example">
+    <h3>5. Multiple Checkboxes (Choose Many)</h3>
+    <form>
+      <label><input type="checkbox" name="hobby" value="reading"> Reading</label>
+      <label><input type="checkbox" name="hobby" value="sports"> Sports</label>
+      <label><input type="checkbox" name="hobby" value="music"> Music</label>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- 6. Select All / Deselect All -->
+  <div class="example">
+    <h3>6. Select All / Deselect All</h3>
+    <label><input type="checkbox" id="selectAll"> Select All</label>
+    <label><input type="checkbox" class="option" value="HTML"> HTML</label>
+    <label><input type="checkbox" class="option" value="CSS"> CSS</label>
+    <label><input type="checkbox" class="option" value="JavaScript"> JavaScript</label>
+    <label><input type="checkbox" class="option" value="Python"> Python</label>
+    <button onclick="showSelected()">Show Selected</button>
+  </div>
+
+  <!-- 7. Styled Checkbox -->
+  <div class="example styled">
+    <h3>7. Custom Styled Checkbox</h3>
+    <label><input type="checkbox" checked> Green Styled Checkbox</label>
+  </div>
+
+  <script>
+    // "Select All / Deselect All" functionality
+    const selectAll = document.getElementById("selectAll");
+    const checkboxes = document.querySelectorAll(".option");
+
+    selectAll.addEventListener("change", () => {
+      checkboxes.forEach(cb => cb.checked = selectAll.checked);
+    });
+
+    // If all options are checked, "Select All" also checked
+    checkboxes.forEach(cb => {
+      cb.addEventListener("change", () => {
+        const allChecked = Array.from(checkboxes).every(c => c.checked);
+        selectAll.checked = allChecked;
+      });
+    });
+
+    // Show selected checkboxes
+    function showSelected() {
+      let selected = [];
+      checkboxes.forEach(cb => {
+        if (cb.checked) selected.push(cb.value);
+      });
+      alert("Selected: " + (selected.length ? selected.join(", ") : "None"));
+    }
+  </script>
+
+</body>
+</html>
