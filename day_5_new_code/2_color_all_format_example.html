@@ -1,0 +1,81 @@
+
+
+
+
+
+<!--  all color proprty  format using example  at a place-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,
+   initial-scale=1.0">
+  <title>CSS Color Formats Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;  /* space from outside ground */
+    }
+    h1 {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .box {
+      padding: 15px; /*inside box space */
+      margin: 10px 0; /* outside box space place */
+      border-radius: 8px;
+       /*default color black */
+      font-weight: bold;
+    }
+
+    /* Named Color */
+    .named { background-color: red; }
+
+    /* HEX */
+    .hex { background-color: #00ffcc; }
+
+    /* RGB */
+    .rgb { background-color: rgb(0, 128, 255); }
+
+    /* RGBA */
+    .rgba { background-color: rgba(255, 0, 0, 0.5); color: black; }
+
+    /* HSL */
+    .hsl { background-color: hsl(120, 100%, 35%); }
+
+    /* HSLA */
+    .hsla { background-color: hsla(300, 80%, 40%, 0.7); }
+
+    /* HWB */
+    .hwb { background-color: hwb(200 20% 20%); }
+
+    /* Lab */
+    .lab { background-color: lab(60 70 40); }
+
+    /* LCH */
+    .lch { background-color: lch(70% 80 40); }
+
+    /* color() function with Display-P3 */
+    .color-fn { background-color: color(display-p3 1 0.2 0.2); }
+
+    .ghost { background-color: gold;}
+  </style>
+</head>
+<body>
+  <h1>🎨 CSS Color Formats Demo</h1>
+
+  <div class="box named">Named Color → red</div>
+  <div class=" hex">HEX → #00ffcc</div>
+  <div class="box rgb">RGB → rgb(0, 128, 255)</div>
+  <div class=" rgba">RGBA → rgba(255, 0, 0, 0.5)</div>
+  <div class="box hsl">HSL → hsl(120, 100%, 35%)</div>
+  <div class="box hsla">HSLA → hsla(300, 80%, 40%, 0.7)</div>
+  <div class="box hwb">HWB → hwb(200 20% 20%)</div>
+  <div class="box lab">Lab → lab(60 70 40)</div>
+  <div class="box lch">LCH → lch(70% 80 40)</div>
+  <div class="box color-fn">color() → color(display-p3 1 0.2 0.2)</div>
+  <div class=" ghost"> ghost-> my color this is</div>
+ <div class="box ghost"> ghost-> my color this is</div>
+</body>
+</html>

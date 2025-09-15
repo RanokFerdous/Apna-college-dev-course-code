@@ -1,0 +1,79 @@
+<!-- all text decoration topic example at a file -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Text Properties Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Example 1: Basic text properties */
+        .example1 {
+            text-align: left;
+            text-decoration: underline;
+            line-height: normal;
+            font-weight: normal;
+            font-size: 16px;
+            letter-spacing: normal;
+        }
+
+        /* Example 2: Center aligned, bold, larger font, multiple text-decoration */
+        .example2 {
+            text-align: center;
+            text-decoration: double overline blue;
+            line-height: 2.5;
+            font-weight: 700;
+            font-size: 2.3em;
+            letter-spacing: 2px;
+        }
+
+        /* Example 3: Right aligned, italic look with line-through, letter spacing */
+        .example3 {
+            text-align: right;
+            text-decoration: line-through wavy red;
+            line-height: 45px;
+            font-weight: lighter;
+            font-size: 2.9rem;
+            letter-spacing: o.2em;
+        }
+
+        /* Example 4: Justified, underline + overline using separate properties */
+        .example4 {
+            text-align: justify;
+            text-decoration-line: underline overline;
+            text-decoration-style: dashed;
+            text-decoration-color: green;
+            line-height: 120%;
+            font-weight: 600;
+            font-size: 40px;
+            letter-spacing: -1.5px;
+        }
+
+        /* Example 5: Multiple lines with different colors and spacing */
+        .example5 {
+            text-align: center;
+            text-decoration: underline dotted orange;
+            line-height: 2.2;  /* create space bw 2 line */
+            font-weight: 900;
+            font-size: 29px;
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Text Properties Demo</h1>
+
+    <p class="example1">Example 1: Left aligned, underlined, normal weight, 16px, 1px letter spacing.</p>
+    <p class="example2">Example 2: Center aligned, double overline blue, bold, 24px, 2px letter spacing.</p>
+    <p class="example3">Example 3: Right aligned, wavy red line-through, lighter weight, 20px, 3px letter spacing.</p>
+    <p class="example4">Example 4: Justified, underline + overline dashed green, semi-bold, 18px, 1.5px letter spacing.</p>
+    <p class="example5">Example 5: Center aligned, dotted underline orange, heaviest weight, 22px, 4px letter spacing.</p>
+
+</body>
+</html>

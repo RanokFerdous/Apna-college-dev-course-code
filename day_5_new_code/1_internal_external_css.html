@@ -1,0 +1,53 @@
+<!--  example of internal and external css  creating method -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Examples</title>
+
+  <!-- External CSS link -->
+  <link rel="stylesheet" href="1_style.css">
+
+  <!-- Internal CSS -->
+  <style>
+    /* This affects the <h2> */
+    h2 {
+      color: darkblue;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Styling the section */
+    section {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 60%;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Inline CSS example -->
+  <h1 style="color: green; text-align: center;">
+    Welcome to My Website
+  </h1>
+
+  <!-- Section styled with internal & external CSS -->
+  <section>
+    <h2>About Us</h2>
+    <p>
+      This section is styled using <b>internal CSS</b> and the paragraph below
+      is styled with <b>external CSS</b>.
+    </p>
+    <p class="external-text">
+      We create modern web applications with HTML, CSS, and JavaScript.
+    </p>
+  </section>
+
+</body>
+</html>
