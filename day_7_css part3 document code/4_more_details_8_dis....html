@@ -1,0 +1,192 @@
+<!-- more details explain the 8 display property  -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Property - Detailed Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: darkblue;
+    }
+
+    /* Common styling for all boxes */
+    .demo-box {
+      border: 2px solid black;
+      padding: 10px;
+      margin: 5px;
+      background: lightgray;
+    }
+
+    /* 1. Block Example */
+    .block {
+      display: block;
+      background: lightblue;
+    }
+
+    /* 2. Inline Example */
+    .inline {
+      display: inline;
+      background: pink;
+    }
+
+    /* 3. Inline-block Example */
+    .inline-block {
+      display: inline-block;
+      width: 120px;
+      height: 50px;
+      background: orange;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    /* 4. None Example */
+    .none {
+      display: none; /* This box will be hidden completely */
+    }
+
+    /* 5. Flex Example */
+    .flex-container {
+      display: flex;
+      justify-content: space-around; /* spacing between children */
+      background: lightgreen;
+      padding: 10px;
+    }
+    .flex-item {
+      background: darkgreen;
+      color: white;
+      padding: 20px;
+    }
+
+    /* 6. Grid Example */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+       /*  4 equal columns */
+      gap: 10px;
+      background: lightcoral;
+      padding: 10px;
+    }
+    .grid-item {
+      background: darkred;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* 7. Inline-flex Example */
+    .inline-flex-container {
+      display: inline-flex;
+      background: lightseagreen;
+      padding: 100px;
+    }
+    .inline-flex-item {
+      background: teal;
+      color: white;
+      margin: 5px;
+      padding: 15px;
+    }
+
+    /* 8. Table Example */
+    .table-container {
+      display: table;
+      border: 2px solid black;
+      margin-top: 10px;
+    }
+    .table-row {
+      display: table-row;
+    }
+    .table-cell {
+      display: table-cell;
+      border: 1px solid gray;
+      padding: 15px;
+      background: lightyellow;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Display Property – Detailed Demo</h1>
+  <p>This page shows <b>all 8 major display values</b> with clear examples.</p>
+
+  <!-- 1. Block -->
+  <h2>1. Block</h2>
+  <div class="demo-box block">Block Element 1</div>
+  <div class="demo-box block">Block Element 2 (Starts on a new line)</div>
+
+  <!-- 2. Inline -->
+  <h2>2. Inline</h2>
+  <span class="demo-box inline">Inline 1</span>
+  <span class="demo-box inline">Inline 2</span>
+  <span class="demo-box inline">Inline 3</span>
+  <p>Notice: Inline elements do <b>not</b> start on a new line and ignore width/height.</p>
+
+  <!-- 3. Inline-block -->
+  <h2>3. Inline-block</h2>
+  <div class="demo-box inline-block">Box 1</div>
+  <div class="demo-box inline-block">Box 2</div>
+  <div class="demo-box inline-block">Box 3</div>
+  <p>Inline-block elements stay in line but allow <b>width and height</b>.</p>
+
+  <!-- 4. None -->
+  <h2>4. None</h2>
+  <p>This text is visible.</p>
+  <p class="demo-box none">This paragraph is hidden (display: none)</p>
+  <p>This text appears right after, as if the hidden one doesn’t exist.</p>
+
+  <!-- 5. Flex -->
+  <h2>5. Flex</h2>
+  <div class="flex-container">
+    <div class="flex-item">Flex 1</div>
+    <div class="flex-item">Flex 2</div>
+    <div class="flex-item">Flex 3</div>
+  </div>
+  <p>Flexbox arranges items <b>horizontally</b> and allows alignment/spacing control.</p>
+
+  <!-- 6. Grid -->
+  <h2>6. Grid</h2>
+  <div class="grid-container">
+    <div class="grid-item">Grid 1</div>
+    <div class="grid-item">Grid 2</div>
+    <div class="grid-item">Grid 3</div>
+    <div class="grid-item">Grid 4</div>
+    <div class="grid-item">Grid 5</div>
+    <div class="grid-item">Grid 6</div>
+  </div>
+  <p>Grid arranges items in <b>rows and columns</b>.</p>
+
+  <!-- 7. Inline-flex -->
+  <h2>7. Inline-flex</h2>
+  <p>
+    This sentence has an
+    <span class="inline-flex-container"> hello how are your ....................................
+        ..............................
+      <div class="inline-flex-item">IF-1</div>
+      <div class="inline-flex-item">IF-2</div>
+    </span>
+    inline-flex container inside text.
+  </p>
+  <p>Notice: Inline-flex behaves like text but contains flex items inside.</p>
+
+  <!-- 8. Table -->
+  <h2>8. Table</h2>
+  <div class="table-container">
+    <div class="table-row">
+      <div class="table-cell">Row 1, Col 1</div>
+      <div class="table-cell">Row 1, Col 2</div>
+    </div>
+    <div class="table-row">
+      <div class="table-cell">Row 2, Col 1</div>
+      <div class="table-cell">Row 2, Col 2</div>
+    </div>
+  </div>
+  <p>Using display: table, row, and cell to mimic real table behavior.</p>
+
+</body>
+</html>

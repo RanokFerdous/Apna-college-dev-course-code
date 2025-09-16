@@ -1,0 +1,52 @@
+<!-- explain the em and rem with example -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>em vs rem Example</title>
+<style>
+  html { font-size: 26px; }
+  body { font-size: 18px; }
+
+  .em-example {
+    font-size: 2em; /* 2 × parent = 36px (body font-size) */
+    background-color: lightblue;
+    padding: 1em; /* padding scales with font-size */
+  }
+
+  .rem-example {
+    font-size: 2rem; /* 2 × root = 32px (html font-size) */
+    background-color: lightgreen;
+    padding: 1rem; /* padding scales with root font-size */
+  }
+
+  .nested {
+    font-size: 2em; /* inside parent em-example, compounds */
+    background-color: coral;
+    padding: 0.5em;
+  }
+</style>
+</head>
+<body>
+
+<h1>em -> this is h1 type size , this is fixed for h1 heading </h1>
+<div class="em-example">
+  Parent box (2em)  -> this is 36 px .
+  <div class="nested">Nested box (2em inside 2em) → compounds to 72px
+
+      <div class="nested">  next div what's up ? 144px  </div>
+
+  </div>
+  <div class="nested">  next div what's up ? </div>
+</div>
+
+<h2>rem Example -> this is heading size fixed for h2. </h2>
+<div class="rem-example">
+  This box is 2rem → always 52px regardless of parent
+</div>
+
+<p style="font-size: 36px;"> on the go china iu -> 36 px font </p>
+<p style="font-size: 72px;"> on the go china tech -> 72 px font </p>
+
+</body>
+</html>

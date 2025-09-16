@@ -1,0 +1,164 @@
+<!--  total 8 display property explain here -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Property Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    /* 1. Block */
+    .block {
+      display: block;
+      background: lightblue;
+      margin: 5px 0;
+      padding: 10px;
+    }
+
+    /* 2. Inline */
+    .inline {
+      display: inline;
+      background: pink;
+      padding: 5px;
+    }
+
+    /* 3. Inline-block */
+    .inline-block {  /* take fix width , height */
+      display: inline-block;
+      width: 120px;
+      height: 50px;
+      background: orange;
+      margin: 5px;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    /* 4. None  : nothing will be display */
+    .none {
+      display: none; /* This one will not show */
+    }
+
+    /* 5. Flex   : take full width .*/
+    .flex {
+      display: flex;
+      justify-content: space-around;
+      background: lightgreen;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .flex div {
+      background: darkgreen;
+      color: white;
+      padding: 10px;
+    }
+
+    /* 6. Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      /*  4 times 1fr => means :
+       4 colums take a line */
+      gap: 30px;
+      background: lightcoral;
+      padding: 100px;
+      margin: 30px 0;
+    }
+    .grid div {
+      background: darkred;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* 7. Inline-flex */
+    .inline-flex {
+      display: inline-flex;
+      background: lightseagreen;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .inline-flex  div {
+      background: teal;
+      color: red;
+      margin: 5px;
+      padding: 10px;
+    }
+
+    /* 8. Table */
+    .table {
+      display: table;
+      border: 2px solid black;
+      margin-top: 10px;
+    }
+    .row {
+      display: table-row;
+    }
+    .cell {
+      display: table-cell;
+      border: 1px solid gray;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>1. Block</h2>
+  <div class="block">Block Element 1</div>
+  <div class="block">Block Element 2</div>
+
+  <h2>2. Inline</h2>
+  <span class="inline">Inline 1</span>
+  <span class="inline">Inline 2</span>
+  <span class="inline">Inline 3</span>
+
+  <h2>3. Inline-block</h2>
+  <div class="inline-block">Box 1</div>
+  <div class="inline-block">Box 2</div>
+  <div class="inline-block">Box 3</div>
+
+  <h2>4. None (Hidden)</h2>
+  <p class="none">This paragraph is hidden with display: none</p>
+
+  <h2>5. Flex</h2>
+  <div class="flex">
+    <!-- this div take full width with its 3 element -->
+    <div>Flex 1</div>
+    <div>Flex 2</div>
+    <div>Flex 3</div>
+  </div>
+
+  <h2>6. Grid</h2>
+  <div class="grid">
+    <div>Grid 1</div>
+    <div>Grid 2</div>
+    <div>Grid 3</div>
+    <div>Grid 4</div>
+    <div>Grid 5</div>
+    <div>Grid 6</div>
+  </div>
+
+  <h2>7. Inline-flex</h2>
+  <p>This sentence has an <span class="inline-flex">
+    <div>IF-1</div>
+    <div>IF-2</div>
+  </span> inline-flex box inside text.</p>
+
+  <h2>8. Table</h2>
+  <div class="table">
+    <div class="row">
+      <div class="cell">Row 1, Col 1</div>
+      <div class="cell">Row 1, Col 2</div>
+    </div>
+    <div class="row">
+      <div class="cell">Row 2, Col 1</div>
+      <div class="cell">Row 2, Col 2</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!-- Let’s make a visual HTML demo showing all absolute and relative units in colorful boxes so you can see how they behave. -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS Units Visual Demo</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  h2 {
+    margin-top: 30px;
+    color: darkblue;
+  }
+
+  /* Common style for all boxes */
+  .box {
+    border: 4px solid black;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* Absolute Units */
+  .px-box {
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+    font-size:22px;
+    /* 1pt=1.33px,16pt=21.33px */
+  }
+
+  .pt-box {
+    font-size: 16pt;
+    background-color: lightcoral;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .cm-box {
+    width: 5cm;
+    height: 2cm;
+    background-color: lightgreen;
+    /* 1 cm = ( 96/2.54)=37.8 px */
+  }
+
+  .mm-box {
+    width: 30mm;
+    height: 15mm;
+    background-color: lightpink;
+    /*  1 mm = 3.78px */
+  }
+
+  /* Relative Units */
+  .percent-box {
+    width: 50%;
+    height: 70px;
+    background-color: lightyellow;
+    font-size: 300%;
+  }
+
+  .em-box {
+    font-size: 2em;
+    background-color: orange;
+    padding: 5px;
+  }
+
+  .rem-box {
+    font-size: 1.5rem;
+    background-color: lightseagreen;
+    color: white;
+    padding: 5px;
+  }
+
+  .vw-box {
+    width: 50vw;
+    height: 50px;
+    background-color: violet;
+    color: white;
+    line-height: 50px;
+  }
+
+  .vh-box {
+    width: 200px;
+    height: 50vh;
+    background-color: tomato;
+    color: white;
+    line-height: 50px;
+  }
+
+  .ch-box {
+    width: 20ch; /* 20 characters wide */
+    background-color: lightgray;
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>CSS Units Visual Demo</h1>
+
+<h2>Absolute Units</h2>
+<div class="box px-box">200px × 100px px box</div>
+<div class="box pt-box">16pt font height pt box </div>
+<div class="box cm-box">5cm × 2cm cm box</div>
+<div class="box mm-box">30mm × 15mm mm box</div>
+
+<h2>Relative Units</h2>
+<div class="box percent-box">50% width of parent % box</div>
+<div class="box em-box">2em font size (relative to parent) em box</div>
+<div class="box rem-box">1.5rem font size (relative to root) rem box</div>
+<div class="box vw-box">50vw width of viewport ->vw box</div>
+<div class="box vh-box">50vh height of viewport -> vh box</div>
+<div class="box ch-box">20ch width (20 characters) -> ch-box</div>
+
+</body>
+</html>

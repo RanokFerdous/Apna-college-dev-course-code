@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model Example</title>
+  <style>
+    .myBox {
+      width: 300px;               /* set width */
+      height: 150px;              /* set height */
+
+      border-width: 5px;          /* border thickness */
+      border-style: solid;        /* border type */
+      border-color: darkblue;     /* border color */
+      border-left-color: red;
+      border-right-color: orange;
+
+      border-top:5px dashed green;
+      /* border: width style color ; */
+      /* border:5px solid darkblue; */
+
+      border-radius: 20px;        /* rounded corners */
+
+      padding-top: 20px;          /* space inside (top) */
+      padding-right: 15px;        /* space inside (right) */
+      padding-bottom: 20px;       /* space inside (bottom) */
+      padding-left: 15px;         /* space inside (left) */
+    /* padding: 20px 15px 20px 15px;
+    padding: top right bottom left */
+
+      margin-top: 30px;           /* space outside (top) */
+      margin-right: 50px;         /* space outside (right) */
+      margin-bottom: 30px;        /* space outside (bottom) */
+      margin-left: 50px;          /* space outside (left) */
+
+      /* margin:30px 50px 30px 50px;
+        margin:top right bottom left */
+
+      background-color: lightblue; /* content background */
+    }
+    /* create a round div for fun */
+    .brick{
+        /* note: for creating round ,we need same height and width */
+        height: 500px;
+        width:500px;
+        background-color: pink;
+        border:8px dotted black;
+        border-radius:50%; /* 50% for round */
+    }
+
+    h1{
+        border:2px dashed;
+        border-radius: 0% 30% 50% 70%;
+        /* search on mdn */
+    }
+  </style>
+</head>
+<body>
+  <div class="myBox">
+    This is a box with height, width, border, border-radius, padding, and margin applied.
+  </div>
+
+  <div class="brick"> this is brick ok. </div>
+
+  <h1 >this is cricket ball or football</h1>
+</body>
+</html>
