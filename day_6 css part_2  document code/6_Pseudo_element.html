@@ -1,0 +1,110 @@
+<!--  explain the Pseudo element with example  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudo-elements Example</title>
+  <style>
+    /* ::before → insert content before element */
+    p::before {
+      content: "Before/anything can i write here: ";
+      color: blue;
+      font-weight: bold;
+    }
+
+    /* ::after → insert content after element */
+    p::after {
+      content: " :After / anyting,,can write ,,";
+      color: red;
+      font-style: italic;
+    }
+
+    /* ::first-line → style the first line of text */
+    p.first-line::first-line {
+      text-transform: uppercase;
+      color: green;
+    }
+
+    /* ::first-letter → style the first letter of text */
+    p.first-letter::first-letter {
+      font-size: 2em;
+      color: orange;
+    }
+
+    /* ::selection → style selected text */
+    p::selection {
+      background-color: yellow;
+      color: black;
+    }
+
+    /* ::placeholder → style placeholder text */
+    input::placeholder {
+      color: gray;
+      font-style: italic;
+    }
+
+    /* ::marker → style list bullets/numbers */
+    li::marker {
+      color: red;
+      font-size: 2 em;
+    }
+
+    /* ::backdrop → style full screen backdrop (used with <dialog>) */
+    dialog::backdrop {
+      background-color: rgba(231, 37, 37, 01.0);
+      color:aqua
+    }
+
+    /* ::file-selector-button → style upload button in input type=file */
+    input[type=file]::file-selector-button {
+      background-color: lightblue;
+      border: 1px solid blue;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    /* ::cue → captions/subtitles styling (used in <video>) */
+    video::cue {
+      background-color: black;
+      color: yellow;
+      font-weight: bold;
+    }
+
+    /* ::part(name) → style shadow DOM parts (requires shadow DOM) */
+    /* Example: custom-element::part(header) { color: purple; } */
+
+    /* ::slotted(selector) → style slotted content inside shadow DOM */
+    /* Example: custom-element::slotted(span) { color: orange; } */
+  </style>
+</head>
+<body>
+
+<h2>Pseudo-elements Examples</h2>
+
+<p>This paragraph uses ::before and ::after pseudo-elements.</p>
+<p class="first-line">This paragraph demonstrates ::first-line pseudo-element styling.</p>
+<p class="first-letter">This paragraph demonstrates ::first-letter pseudo-element styling.</p>
+
+<input type="text" placeholder="Type here...">
+
+<ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+</ul>
+<br>
+<!-- ::backdrop example -->
+<dialog open>Dialog box with semi-transparent backdrop</dialog>
+<br>
+<!-- ::file-selector-button example -->
+<input type="file">
+
+<!-- ::cue example requires video with captions -->
+<video controls width="320" height="240">
+  <source src="video tech.mp4" type="video/mp4">
+  <track kind="subtitles" src="sample.vtt" srclang="en" label="English" default>
+</video>
+
+</body>
+</html>

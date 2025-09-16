@@ -1,0 +1,114 @@
+<!--  explain just important part of Pseudo class and element -->
+
+<!--  topic: pseudo class: :hover , :active , :checked , :nth-of-type
+  pseudo element :  ::first-letter , ::first-line, ::selection  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+     initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        button:hover {
+            background-color: black;
+            color:white;
+        }
+
+        /* button:active {...} when hover then saw black and when click the saw hotpink */
+        button:active {
+            background-color: hotpink;
+            color:yellow;
+        }
+
+        /*  style for radio  tricky  */
+        input[type="radio"]:checked + label {
+             background-color: violet;
+             padding: 4px;
+    }
+       /* style for check box */
+         input:checked + label {
+            color: red;
+            font-weight: bold;
+        }
+        /* style for select part  */
+        option:checked {
+              background: yellow;
+              font-weight: bold;
+          }
+
+          div:nth-of-type(1n){
+            background-color: greenyellow;
+          }
+
+          h1::first-letter{
+            color:magenta;
+          }
+
+          pre::first-line{
+            color:blue;
+            text-decoration:dashed;
+          }
+          p::selection {
+            background: yellow;
+            color: red;
+          }
+          h3::selection {
+            background: orange;
+            color: white;
+          }
+
+    </style>
+</head>
+<body>
+
+    <button type="button">answer</button>
+    <hr>
+    <!-- create 2 radio input for class: 13 check topic: -->
+     <!-- tricky radion button: when 2 button can select and when 1 button can select ,  -->
+     <div>
+        <!-- here , 2 button can select, because name not given  -->
+        <input type="radio" id="yes">
+        <label for="yes"> Yes</label>
+        <input type="radio" id="no">
+        <label for="no">No</label>
+     </div>
+     <hr>
+      <div>
+        <!--  here , only 1 button can select , because name given -->
+        <input type="radio" id="yes" name ="agree">
+        <label for="yes"> good</label>
+        <input type="radio" id="no" name="agree">
+        <label for="no">bad</label>
+     </div>
+
+     <!-- Pseudo class : checked topic: -->
+
+     <input type="checkbox" id="accept">
+     <label for="accept">I  accept terms</label>
+     <!-- it will be check automatic -->
+     <input type="checkbox" id="not_accept" checked>
+     <label for="not_accept">I  not accept terms.automatic check</label> &nbsp; &nbsp;
+     <!-- select option check apply  -->
+      <select>
+         <option>Apple</option>
+         <option selected>Banana</option>
+         <option>Cherry</option>
+      </select>
+
+    <hr>
+    <h1>this is heading . use 1st letter Pseudo element</h1> <hr>
+  <pre> use 1st line coloring so used
+    pseudo element in 1st line.
+  </pre>
+
+  <hr>
+
+  <p>Select this text to see custom styling!</p> <hr>
+  <h3>Heading Selection</h3>
+
+
+</body>
+</html>

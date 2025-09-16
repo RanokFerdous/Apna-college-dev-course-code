@@ -1,0 +1,102 @@
+<!--  learn all selector :
+
+i.universal selector
+ii)element selector       iii)id selector    iv)  class selector
+v) Descendant selector    vi )  sibling combinator  vii) sibling combinator
+
+viii)  child combinator   ix) Attriburte selector
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Selectors Example</title>
+  <style>
+    /* 1) Universal Selector */
+    * {
+      font-family: Arial, sans-serif;
+      margin: 5px;
+    }
+
+    /* 1) Element Selector */
+    h1 {
+      color: darkblue;
+    }
+
+    /* 2) ID Selector */
+    #special {
+      color: red;
+      font-weight: bold;
+    }
+
+    /* 3) Class Selector */
+    .highlight {
+      background-color: yellow;
+    }
+
+    /* 4 and 5 for green color ) Descendant Selector (space) */
+    /* **it make all <p> insdie .box are green  */
+    .box p {
+      color: green;
+    }
+
+    /* 4. for border) Child Combinator (>)  : apply only direct child  here*/
+    .box > p {
+      border: 1px solid black;
+    }
+
+    /* 6 a ) Adjacent Sibling (+)   : */
+    h2 + p {   /* only first <p> after <h2> purple.  */
+      color: purple;
+    }
+
+    /* 6b) General Sibling (~) */
+    h2 ~ p {   /*   all later <p> after h2  siblings italic. */
+      font-style: italic;
+    }
+
+    /* 7) Attribute Selector :
+    a[target="_blank"] → external link orange.*/
+    a[target="_blank"] {   /* in which link  target="_blank" found ,there color will be orange. other wise normal**  blue link will be  */
+      color: orange;
+    }
+    /* input[type="text"] → text box gets blue border. */
+    input[type="text"] {
+      border: 2px solid blue;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>1. Universal & Element Selector</h1>
+
+  <p>This is a normal paragraph.</p>
+  <p id="special">2. ID Selector → This paragraph is styled with <code>#special</code>.</p>
+  <p class="highlight">3. Class Selector → This paragraph has a yellow background.</p>
+
+  <div class="box">
+    <p>4. Child & Descendant → This is a DIRECT child (green text + black border).</p>
+    <div>
+      <p>5. Descendant only (green text, NO border, because it’s not direct).</p>
+    </div>
+  </div>
+
+  <h2>6. Sibling Selectors</h2>
+  <p> a .This paragraph comes immediately after h2 (purple, adjacent sibling).</p>
+  <p>b . This one comes later after h2 (italic, general sibling).</p>
+
+  <h2>Another heading</h2>
+  <div>
+    <p>Not styled, because not a sibling of h2.</p>
+  </div>
+
+  <h1>7. Attribute Selector</h1>
+  <a href="https://example.com" target="_blank">External Link (orange)</a><br>
+  <a href="page.html"  >Internal Link (normal)</a><br><br>
+
+  <input type="text" placeholder="Text input (blue border)">
+  <input type="password" placeholder="Password input (normal border)">
+
+</body>
+</html>

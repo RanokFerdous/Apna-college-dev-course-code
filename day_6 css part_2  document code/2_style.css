@@ -1,0 +1,154 @@
+/* code  for 2_selector the given index.html code  */
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white
+}
+
+/* element selector  */
+h1{
+    color:red;
+}
+
+/* id selector : select an element based on the value of the element's id attribue */
+
+#login {
+    background-color: blueviolet
+ }
+
+ #signup {
+    background-color: #b92b27;
+ }
+/* class selector: select an element based on therir class attribute . every button class give name upvote */
+
+.upvote {
+    background-color: green;
+}
+
+/* question : set the color paragraph inside divs with the id "myid" to green */
+
+#myid p {
+    color: green
+}
+
+/*    inside div all input  color will be yellow */
+div>input {
+    background-color:yellow;
+
+}
+
+/* sfljsllsf    */
+
+input[type="text"] {
+    color: green;
+}
+input[type="password"] {
+
+    background-color: aqua;
+}
+
+/* descendent selector: select all paragraph inside the div  */
+div p {
+
+    color:blue;
+}
+
+nav ul li {
+    color: hotpink;
+}
+
+nav ul li a {
+    color:green ;
+}
+
+/* sibling combinator:  */
+.upvote + button {
+    color: brown;
+    background-color: lawngreen;
+}
+
+/* =============================== */
+/* class: 13 to 14  */
+
+ /*  from class 13: Pseudo class  */
+
+
+ button:hover {
+    background-color: black;
+    color: white;
+ }
+/*
+
+button:active { ..};  when hover then saw black and when
+ click then saw hotpink color
+
+ */
+
+ button:active {
+
+    background-color: hotpink;
+    color: black;
+ }
+
+
+/*  topic: checked   ?  */
+
+input[type="radio"] :checked  + label {
+    color: green;
+    font-weight : bold;
+}
+
+/*
+
+.post:nth-of-type(2){
+    background-color: green;
+} */
+
+/*  2nd div will be colored */
+div:nth-of-type( 2){
+    background-color: greenyellow;
+}
+
+ /* every 2nd element color will be changded. */
+/* div:nth-of-type( 2n){
+    background-color: greenyellow;
+} */
+
+
+
+ /* every  div element color will be changded. */
+/* div:nth-of-type( 1n){
+    background-color: greenyellow;
+} */
+
+
+
+/* class 14: Pseudo element */
+/*  color the first letter of h1  */
+h1::first-letter {
+    color:orange;
+}
+
+h2::first-letter{
+    color:blue
+}
+
+h4::first-line
+{
+    color:goldenrod;
+}
+
+
+/* ================= */
+
+/* selection =>  when we select a portion and want to change
+it's style. */
+
+/*  selection: when we select any line using cursor then
+
+the selectionpart show us this red color
+
+*/
+p::selection{
+    background-color: red;
+}

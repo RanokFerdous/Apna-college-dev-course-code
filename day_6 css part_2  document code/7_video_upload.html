@@ -1,0 +1,30 @@
+<!-- how to video upload here  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+ /* ::cue → captions/subtitles styling (used in <video>) */
+    video::cue {
+      background-color: black;
+      color: yellow;
+      font-weight: bold;
+    }
+
+    </style>
+</head>
+<body>
+
+    <h1>video upload here using path </h1>
+    <!-- ::cue example requires video with captions -->
+<video controls width="320" height="240">
+  <source src="video tech.mp4" type="video/mp4">
+  <track kind="subtitles" src="sample.vtt" srclang="en" label="English" default>
+</video>
+
+</body>
+</html>

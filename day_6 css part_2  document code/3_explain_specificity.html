@@ -1,0 +1,104 @@
+<!-- explain the specificity  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 0,1,0,0 */
+        /* #header-id {
+            color:black;
+        } */
+
+
+          /* 0,0,1,1 */
+        /* h1.header {
+            color:palevioletred;
+        } */
+
+            /*1, 0,0,1,1 */
+        /* h1.header {
+            color:palevioletred !important;
+        } */
+
+
+        /* 0,0,12,0 */
+        .header {
+            color:red;
+        }
+
+         /* 0,0,12,0 */
+        .header {
+
+            color:purple;
+        }
+
+          /* 1,0,0,1,0 */
+           .header {
+
+            color:purple !important;
+        }
+
+
+         h1.header-2 {
+            /* 1,0,0,1,1  */
+            color:purple !important;
+        }
+         /* 0,0,1,1 */
+        body .header {
+            color:lawngreen;
+        }
+
+        .header-2 {
+            color:yellow
+        }
+        /* 0,0,0,1 */
+        h1 {
+            color:blue;
+        }
+        .text{
+            color:green;
+        }
+
+        /*  for h2 */
+
+        body > .greater {
+            color:hotpink;
+        }
+
+        #header-id {
+            color:cyan;
+        /* }
+        body .greater {
+            color:red;
+        } */
+
+        body .greater-2 {
+            color:green;
+        }
+
+        body #header-id {
+            color:magenta;
+        }
+
+
+    </style>
+</head>
+<body>
+<!-- for inline css : 1,0,0,0 -->
+    <!-- <h1 id="header-id" class="header header-2" style="color:cyan"> I am Header</h1> -->
+
+      <h1 id="header-id" class="header header-2" > I am Header</h1>
+
+    <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br>Quae numquam unde temporibus esse est sit quia consequuntur <br>eos, accusamus eaque eveniet. Quo tempora sunt officiis blanditiis fuga doloribus impedit at.</p>
+
+
+    <h2 id="greater-id" class=" greater greater-2"> this is greater header with  h2 </h2>
+
+    <pre> how are you bro?
+        what are you doing?
+    </pre>
+</body>
+</html>

@@ -1,0 +1,370 @@
+/*class 3:  selector topic: */
+
+body {
+    background-color: rgb(32, 218, 128);
+}
+
+
+
+
+
+
+/* universal selector
+
+* {
+    font-family: "Courier New";
+    background-color: blueviolet;
+}
+
+ element selector
+
+h1{
+    color: red;
+}
+
+h2, h3 {
+    color: blue;
+}
+
+
+*/
+
+/*
+ID SELECTOR:
+
+id is used for unique element style.
+it is casesensative
+
+
+we  STYLE LOGIN AND SIGN UP BUTTON */
+
+
+ /* ID SELECTOR:
+
+#login{
+
+    color: red;
+    background-color: rgb(0, 255, 55);
+}
+
+#signup {
+    color: teal;
+    background-color: blue;
+} */
+
+
+
+/* CLASS : 6  CLASS SELECTOR
+use: when we want to different element given same color
+then we use class selector .
+
+
+
+*/
+
+
+.upvote{
+    background-color: blue;
+}
+
+
+#myid  p {
+    color: red;
+}
+
+
+/* decendent selector  */
+
+/* every anchor tag color will be purple  */
+/*
+p a {
+    color: blueviolet;
+    background-color: yellow;
+} */
+
+
+
+/* another example  */
+
+.post a{
+
+    color: navajowhite;
+    background-color: aqua;;
+}
+/*
+
+        <p class ="post">
+
+            <a class="follow" href="/dan">Follow pqr</a>
+
+            </p>
+
+            */
+
+
+
+/* another example of decendent selector */
+
+nav ul li {
+    color: hotpink;
+}
+
+nav ul li a {
+
+    color: green ;
+}
+
+
+
+
+/* class : 9 sibling selector  */
+
+
+ p + h3 {
+    text-decoration: underline;
+    color:red;
+ }
+
+
+
+ /* color change the answer button which is come after the button */
+
+ .upvote + button {
+    color:brown;
+    background-color: lawngreen;
+
+
+ }
+
+
+/* class 10: child Combinator :
+
+select all input which are directly child of div  */
+
+
+/* div >  input {
+
+    background-color:palevioletred;
+} */
+
+
+div > p {
+    background-color:brown;
+}
+
+
+/* class : 11 attribute selector   ****sir can't work it ? */
+
+input [type="text"] {
+
+    color: yellow;
+    background-color: ghostwhite;
+}
+
+input [type="password"] {
+
+    color: green;
+    background-color: brown;
+}
+
+
+
+
+/* ************** review code on css  on day -6  all  below
+
+==> see at a glance
+*/
+/*
+
+1. universal selector
+
+* {
+    font-family: arial;
+}
+
+2. element selector
+
+p {
+    font-family : "Courier New";
+
+}
+
+h1,h3 {
+    color: green;
+}
+
+3. id selector
+
+#login {
+
+    background-color: pink;
+}
+
+
+4.class selector
+
+.upvote {
+    background-color: brown;
+    color:rgb(32, 218, 128)
+}
+
+5. Decendent selector
+
+type 1:
+
+.post a {
+    color: purple;
+
+}
+
+type 2:
+
+nav a {
+    color: blue;
+}
+
+nav ul ol a {
+    color: hotpink
+}
+
+
+/* type 3: ***** Adjacent sibling combinator ( property set only the immediate next   ) */
+
+
+
+/*
+p + h3 {
+
+
+text-decoration : underline;
+}
+
+ type 4: child combinator
+
+ ( select all button which are directly child of span )
+
+ span > button {
+    property: value;
+ } */
+
+
+/*
+ ===================== */
+
+ /* class 11: Attribute selector
+
+
+ input [type ="password"]{
+    color: red;
+ }
+
+
+ input[type ]{
+    color: green ;
+ } */
+
+
+
+ /* ================================= */
+
+
+ /*  from class 13: Pseudo class  */
+
+
+ button:hover {
+    background-color: black;
+    color: white;
+ }
+/*
+
+button:active { ..};  when hover then saw black and when
+ click then saw hotpink color
+
+ */
+
+ button:active {
+
+    background-color: hotpink;
+    color: black;
+ }
+
+
+/*  topic: checked  */
+
+input[type="radio"] :checked  + label {
+    color: green;
+    font-weight : bold;
+}
+
+/*
+
+.post:nth-of-type(2){
+    background-color: green;
+} */
+
+
+div:nth-of-type( 2){
+    background-color: greenyellow;
+}
+
+/* 2nd div will be style */
+
+
+ /* every 2nd element color will be changded. */
+/* div:nth-of-type( 2n){
+    background-color: greenyellow;
+} */
+
+
+
+ /* every  element color will be changded. */
+div:nth-of-type( 1n){
+    background-color: greenyellow;
+}
+
+
+
+/* class 14: Pseudo element */
+
+h1::first-letter {
+    color:orange;
+}
+
+h2::first-letter{
+    color:blue
+}
+
+h4::first-line
+{
+    color:goldenrod;
+}
+
+
+/* ================= */
+
+/* selection =>  when we select a portion and want to change
+it's style. */
+
+
+/*  selection: when we select any line using cursor then
+
+the selectionpart show us this yellogreen color
+
+*/
+p::selection{
+    background-color: red;
+}
+
+
+
+/* <!-- class ;15: cascading & specification  -->
+
+<!-- it is define which property will be use  --> */
+
+h3 {
+    background-color: yellow;
+}
+
+h3 {
+    background-color: blue;
+}

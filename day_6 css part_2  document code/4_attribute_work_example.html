@@ -1,0 +1,69 @@
+<!--  example of attributes  -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attribute Selectors Example</title>
+  <style>
+    /* [attr] → selects all elements with the attribute */
+    [disabled] {
+      background-color: lightgray;
+      color: darkgray;
+    }
+
+    /* [attr=value] → selects element with exact value */
+    [type="text"] {
+      border: 2px solid green;
+    }
+
+    /* [attr~=value] → selects element whose attribute contains the word */
+    [title~="flower"] {
+      color: purple;
+      font-weight: bold;
+    }
+
+    /* [attr|=value] → selects attribute starting with value (dash-separated) */
+    [lang|="en"] {
+      font-style: italic;
+    }
+
+    /* [attr^=value] → selects attribute starting with substring */
+    [class^="btn"] {
+      background-color: yellow;
+    }
+    /* [attr$=value] → selects attribute ending with substring */
+    [class$="end"] {
+      color: red;
+    }
+
+    /* [attr*=value] → selects attribute containing substring */
+    [class*="middle"] {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- [attr] -->
+  <button disabled>Disabled Button</button>
+
+  <!-- [attr=value] -->
+  <input type="text" placeholder="Text input">
+
+  <!-- [attr~=value] -->
+  <p title="red flower bloom">This paragraph contains 'flower' in title</p>
+
+  <!-- [attr|=value] -->
+  <p lang="en-US">English paragraph</p>
+  <p lang="en-hindi"> you are amer product ok </p>
+
+
+  <!-- [attr^=value] -->
+  <button class="btn-primary">Button starting with btn</button>
+
+  <!-- [attr$=value] -->
+  <span class="highlight-end">Ends with 'end'</span>
+
+  <!-- [attr*=value] -->
+  <div class="content-middle-section">Contains 'middle'</div>
+</body>
+</html>

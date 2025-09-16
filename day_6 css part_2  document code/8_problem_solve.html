@@ -1,0 +1,67 @@
+<!-- some problem solve about specification  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* for h1  0,0,1 */
+        h1 {
+            color:pink;
+        }
+        /* 1,0,0 */
+        #greet{
+            color:black;
+        }
+        /* 0,1,0 */
+        .myclass{
+            color:brown;
+        }
+        /* style for p  */
+        /* 0,0,2 */
+        div p {
+            background-color: orange;
+        }
+
+        .para {  /*0,1,0 */
+            background-color: yellow;
+        }
+        p{  /* 0,0,1 */
+            background-color: green;
+        }
+        /* ===style for pre */
+        /*  0,2,1  becase 2 class and 1 element div */
+        div.greetDiv .greet {
+            color:green;
+        }
+        /*  0,2,1 because 2 class and 1 element pre  */
+        .greetDiv pre.greet{
+            color: hotpink;
+        }
+        /*  0,2,0   */
+        .greetDiv .greet {
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- note: priority  for specification :
+     id>class > element  -->
+    <h1 id ="greet" class="myclass"> Hello bro !</h1>
+
+    <div><p class="para"> this is paragraph
+
+    </p></div>
+
+   <div class="greetDiv">
+    <pre class="greet">
+        Hello world ! i am pre tag and greet div.
+    </pre>
+   </div>
+</body>
+</html>

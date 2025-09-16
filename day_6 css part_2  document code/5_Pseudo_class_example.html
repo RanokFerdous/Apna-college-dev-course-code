@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudo-classes Example with Comments</title>
+  <style>
+    /* ---------------- State-related pseudo-classes ---------------- */
+
+    /* :link → unvisited links */
+    a:link {
+      color: blue;
+    }
+
+    /* :visited → links that have been visited */
+    a:visited {
+      color: purple;
+    }
+
+    /* :hover → when mouse hovers over element */
+    a:hover {
+      color: red;
+    }
+
+    /* :active → when element is being clicked */
+    a:active {
+      color: orange;
+    }
+
+    /* :focus → when input element is focused */
+    input:focus {
+      border: 2px solid green;
+    }
+
+    /* :required → input fields with required attribute */
+    input:required {
+      background-color: #ffefef;
+    }
+
+    /* :optional → input fields without required attribute */
+    input:optional {
+      background-color: #efffef;
+    }
+
+    /* :disabled → disabled input elements */
+    input:disabled {
+      background-color: lightgray;
+      color: darkgray;
+    }
+
+    /* :checked → checked checkboxes or radio buttons */
+    input:checked {
+      outline: 2px solid blue;
+    }
+
+    /* :valid → valid input according to type or pattern */
+    input:valid {
+      border-color: green;
+    }
+
+    /* :invalid → invalid input according to type or pattern */
+    input:invalid {
+      border-color: red;
+    }
+
+
+    /* ---------------- Structural pseudo-classes ---------------- */
+
+    /* :first-child → first child of its parent */
+    ul li:first-child {
+      font-weight: bold;
+    }
+
+    /* :last-child → last child of its parent */
+    ul li:last-child {
+      font-style: italic;
+    }
+
+    /* :nth-child(n) → selects the nth child */
+    ul li:nth-child(2) {
+      color: purple;
+    }
+
+    /* :nth-last-child(n) → selects nth child from the end */
+    ul li:nth-last-child(1) {
+      text-decoration: underline;
+    }
+
+    /* :first-of-type → first element of its type among siblings */
+    p:first-of-type {
+      color: blue;
+    }
+
+    /* :last-of-type → last element of its type among siblings */
+    p:last-of-type {
+      color: red;
+    }
+
+    /* :only-of-type → only element of its type among siblings */
+    p:only-of-type {
+      font-size: 30px;
+    }
+
+
+    /* ---------------- Negation / Matching pseudo-classes ---------------- */
+
+    /* :not(selector) → selects elements NOT matching the selector */
+    /* without the 3rd child , other 1,2,4,5 are will be yellow .  */
+    li:not(.skip) {
+      background-color: yellow;
+    }
+
+    /* :is(selector) → selects element if it matches any in the list */
+    /*  it match with 4th child , so apply on 4th child */
+    li:is(.important, .highlight) {
+      border: 1px solid red;
+    }
+
+    /* :where(selector) → similar to :is but 0 specificity */
+    /* select where .special class will be find .  */
+    p:where(.special) {
+      background-color: blue;
+    }
+
+    /* :has(selector) → selects element if it contains the specified child */
+    div:has(p) {
+      border: 2px dashed green;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>State-related pseudo-classes</h2>
+<!-- :link & :visited -->
+<a href="#">Unvisited Link</a><br>
+<a href="#">Visited Link</a><br>
+
+<!-- :focus -->
+<input type="text" placeholder="Focus me"><br>
+
+<!-- :required -->
+<input type="text" required placeholder="Required field"><br>
+
+<!-- :optional -->
+<input type="text" placeholder="Optional field"><br>
+
+<!-- :disabled -->
+<input type="text" disabled placeholder="Disabled field"><br>
+
+<!-- :checked -->
+<input type="checkbox" checked> Checked<br>
+
+<!-- :valid & :invalid -->
+<input type="email" placeholder="Valid/Invalid email"><br>
+
+<h2>Structural pseudo-classes</h2>
+<ul>
+  <!-- :first-child → bold, :last-child → italic -->
+  <li>First Child</li>
+  <li>Second Child</li> <!-- :nth-child(2) → purple text -->
+  <li class="skip">Third Child (skip)</li> <!-- :not(.skip) → no gray background -->
+  <li class="important">Fourth Child (important)</li> <!-- :is(.important) → red border -->
+  <li>Last Child</li> <!-- :nth-last-child(1) → underline -->
+</ul>
+
+<!-- :first-of-type & :last-of-type & :only-of-type -->
+<p>First paragraph</p>
+<p>Last paragraph</p>
+<p class="special">Only paragraph with :where</p> <!-- :where(.special) → light yellow -->
+
+<!-- :has() -->
+<div>
+  <p>Paragraph inside div, triggers :has(div)</p>
+</div>
+
+</body>
+</html>
