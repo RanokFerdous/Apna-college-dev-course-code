@@ -1,0 +1,109 @@
+<!-- explain the background image details -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Image Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .section {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 30px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+
+    /* 1. Fullscreen cover background */
+    .bg1 {
+      background-image: url("hellside.jpg");
+      background-size: cover;          /* fills the box */
+      background-position: center;     /* keeps it centered */
+      background-repeat: no-repeat;
+    }
+
+    /* 2. Small repeated pattern */
+    .bg2 {
+      background-image: url("ai_woman.png");
+      background-repeat: repeat;       /* repeats like tiles */
+      background-size: 100px 100px;    /* scales image smaller */
+      /* each image size 100px 100px */
+      /* height 300px, so take 3 image in a column */
+      background-position: top left;
+      color: black;
+      text-shadow: none;
+    }
+
+    /* 3. Centered + contain */
+    .bg3 {
+      background-image: url("open_ai.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      /* background-size: contain;  */
+        /* fit inside box : if not
+         give ,then not fit  perfectly in box. */
+      background-color: #20232a;       /* fallback color */
+    }
+
+      .bg3_1 {
+      background-image: url("open_ai.png");
+      background-repeat: repeat;
+      background-position: left;
+      /* start from left */
+      background-position: right;
+      /* start form right and fill image to  till right*/
+      background-position: center;
+      /* start from center then go left and right
+      for fillup all space */
+      background-size: contain;
+      /* fit inside box */
+      background-color: #20232a;       /* fallback color */
+    }
+
+    /* 4. Multiple background layers */
+    .bg4 {
+      background-image: url("ai_woman.png"), url("hellside.jpg");
+      background-repeat: no-repeat, no-repeat;
+      background-position: right bottom, center;
+      /* background-position: right bottom; */
+      background-size: 250px, cover;
+    }
+
+    /* 5. Fixed background (parallax effect) */
+    .bg5 {
+      background-image: url("open_ai.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+        background-position: left;
+          background-position: right;
+      background-attachment: fixed;
+    }
+
+  </style>
+</head>
+<body>
+    <!--  here , section is different class.  -->
+  <div class="section bg1">1. Hellside - Fullscreen Cover</div>
+  <div class="section bg2">2. AI Woman - Repeated Pattern</div>
+  <div class="section bg3">3. OpenAI Logo - Contain & Center</div>
+    <div class="section bg3_1">3. OpenAI Logo - Contain & Center</div>
+  <div class="section bg4">4. Multiple Backgrounds (Woman + Hellside)</div>
+  <div class="section bg5">5. Fixed Background (Parallax)</div>
+</body>
+</html>

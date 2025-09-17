@@ -1,0 +1,93 @@
+<!-- extendation: blink and smile face -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Smiley Face</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+
+    /* Face */
+    .face {
+      width: 200px;
+      height: 200px;
+      background: yellow;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    /* Eyes */
+    .eye {
+      width: 30px;
+      height: 30px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 60px;
+      animation: blink 4s infinite;
+      transform-origin: center center;
+    }
+
+    .eye.left {
+      left: 50px;
+    }
+
+    .eye.right {
+      right: 50px;
+    }
+
+    /* Mouth */
+    .mouth {
+      width: 120px;
+      height: 60px;
+      border-bottom: 10px solid black;
+      border-radius: 0 0 60px 60px;
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: smile 3s infinite;
+    }
+
+    /* === Animations === */
+
+    /* Blink animation */
+    @keyframes blink {
+      0%, 90%, 100% {
+        transform: scaleY(1);
+      }
+      95% {
+        transform: scaleY(0.1);
+      }
+    }
+
+    /* Smile animation */
+    @keyframes smile {
+      0%, 100% {
+        height: 60px;
+        border-radius: 0 0 60px 60px;
+      }
+      50% {
+        height: 80px;
+        border-radius: 0 0 80px 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="face">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouth"></div>
+  </div>
+</body>
+</html>

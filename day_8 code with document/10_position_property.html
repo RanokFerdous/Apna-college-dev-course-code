@@ -1,0 +1,156 @@
+<!-- explain the position property: static,relative,absolute,fixed, sticky -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Position Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      margin: 40px 0 10px;
+      /* margin: TOP  RIGHT+LEFT  BOTTOM; */
+      text-align: center;
+    }
+
+    .container {
+      border: 7px solid black;
+      height: 200px;
+      margin: 20px; /* outside space */
+      padding: 20px;
+      /* padding: distance between border and color box*/
+      position: relative;
+      /* for absolute child demo */
+      /* position: static; */
+      background: #f9f9f9;
+    }
+/* box is the samll beautiful box here,5 color 5 box */
+    .box {
+      width: 350px;
+      height: 80px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    /* === Position Examples === */
+
+    /* Static :  */
+    .static-box {
+      position: static; /* default */
+      background: red;
+      top:40px;
+      left:50px;
+      /* for static top left not work.
+      position remain same.  */
+    }
+
+    /* Relative */
+    .relative-box {
+      position: relative;
+      top: 20px;   /* moves 20px down */
+      left: 30px;  /* moves 30px right */
+      background: blue;
+    }
+
+    /* Absolute */
+    .absolute-box {
+      position: absolute;
+      top: 50px;   /* relative to container (because container is relative) */
+      /* right: 20px; */
+      /* left:220px; it will be take 220px from left  */
+      /* note: **by default it will be left side. */
+      left:0px;
+      /* by default it 20px space from left.becasue container give 20px padding
+      .when i give left:20px; then remove the padding space.new space created. */
+      background: green;
+    }
+
+     .absolute-box2 {
+      position: absolute;
+      top: 50px;   /* relative to container (because container is relative) */
+      right: 250px;
+      /* box take 250px space from right. */
+      background: green;
+    }
+
+    /* Fixed */
+    .fixed-box {
+ /*fixed box here position fixed.
+ if we scroll the page the position not
+ change.   */
+      position: fixed;
+      bottom: 200px;
+      right: 140px;
+      /*here box take 200px from bottom
+      and 140px from right and then
+      fixed in a position   */
+      background: purple;
+    }
+
+    /* Sticky  :  sir? */
+    .sticky-box {
+      position: sticky;
+      top: 0; /* sticks when scrolling */
+      background: orange;
+    }
+
+    /* Extra styling to allow scrolling */
+    .scroll-area {
+    /*after  >800px height, we can see scroll bar. */
+      height: 900px;
+      padding: 20px;
+      background: linear-gradient(white, lightgray);
+      /* by default the bar is right side  */
+    }
+  </style>
+</head>
+<body>
+
+  <h2>1. Static (Default)</h2>
+  <div class="container"> what the hell?
+    <div class="box static-box">Static</div>
+  </div>
+
+  <h2>2. Relative</h2>
+  <div class="container"> how are you
+    <div class="box relative-box">Relative</div>
+  </div>
+
+  <h2>3_1 Absolute (inside relative parent)</h2>
+  <div class="container">
+    Parent (Relative)
+    <div class="box absolute-box">Absolute</div>
+  </div>
+
+    <h2>3_2 Absolute (inside relative parent)</h2>
+  <div class="container">
+    Parent (Relative)
+    <div class="box absolute-box2">Absolute</div>
+  </div>
+
+
+  <h2>4. Sticky (scroll to see)</h2>
+  <div class="scroll-area">
+    <div class="box sticky-box">Sticky Header</div>
+    <p>Scroll down... This orange box will "stick" to the top once it reaches there, but only inside this scroll area.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scroll more to test sticky behavior.</p>
+    <p>Keep scrolling... The sticky element stays at the top.</p>
+    <p>Even more content... so you can see sticky working properly.</p>
+  </div>
+
+  <h2>5. Fixed (always on screen)</h2>
+  <p>Scroll the page and notice the purple box stays in the bottom-right corner.</p>
+  <div class="box fixed-box">Fixed</div>
+
+</body>
+</html>

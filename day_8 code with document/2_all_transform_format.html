@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Transform Demo</title>
+<style>
+  body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  .box {
+    width: 120px;
+    height: 120px;
+    background: royalblue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+  }
+  .box1:hover { transform: rotate(45deg);
+  /* rotate 45 degrees clockwise  */
+  }
+  .box2:hover { transform: rotate(-90deg);
+   /* rotate 90 degrees counter-clockwise */
+  }
+  .box3:hover { transform: scale(1.5);
+    /* 150% larger .same for X and Y */
+  }
+  .box4:hover { transform: scale(2, 0.5);
+  /* width is 2 and height is . 5   , */
+   /* different for X and Y .here wider, but shorter*/
+  }
+
+  /* 3. translate()
+
+Moves an element from its original position (without
+affecting other elements, unlike margin or position).
+
+Uses pixels (px), percentages (%), or other units. */
+  .box5:hover { transform: translate(50px, 50px);
+  /* x axis ->50px ( right) and y axis 50px (down) */
+  }
+  .box6:hover { transform: translateX(-80px);
+  /* go 80px to the left on x axis */
+  }
+  .box7:hover { transform: skew(20deg,10deg);
+  /* x axis 20deg and y axis 10deg */
+  }
+  .box8:hover { transform: skewX(30deg); }
+  .box8:hover { transform: skewY(30deg);}
+  /* Combine Multiple Transforms
+You can chain multiple transforms together */
+/* ✅ Order matters! (First translate, then rotate,
+then scale, etc.) */
+  .box9:hover { transform: translate(50px, 0)
+   rotate(30deg) scale(1.2) skewY(10deg); }
+</style>
+</head>
+<body>
+  <div class="box box1">rotate(45°)</div>
+  <div class="box box2">rotate(-90°)</div>
+  <div class="box box3">scale(1.5)</div>
+  <div class="box box4">scale(2,0.5)</div>
+  <div class="box box5">translate(50,50)</div>
+  <div class="box box6">translateX(-80)</div>
+  <div class="box box7">skew(20°,10°)</div>
+  <div class="box box8">skewX(30°)</div>
+  <div class="box box8">skewY(30 degree) </div>
+  <div class="box box9">combine all</div>
+</body>
+</html>
+<!-- rotate() → spins element.
+
+scale() → zooms in/out.
+
+translate() → moves element.
+
+skew() → slants element.
+
+You can combine them for cool animations. -->

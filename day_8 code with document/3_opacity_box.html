@@ -1,0 +1,46 @@
+
+
+<!-- topic: opacity and alpha  -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Opacity vs Alpha</title>
+  <style>
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 2px solid black;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Using opacity */
+    .opacity-box {
+      background: red;
+      opacity: 0.5;
+      /* makes background + text transparent */
+    }
+
+    /* Using rgba alpha */
+    .alpha-box {
+      background: rgba(255, 0, 0, 0.5);
+      /* transparent background only */
+      color: black; /* text stays solid */
+    }
+  </style>
+</head>
+<body>
+  <h2>Opacity vs Alpha Example</h2>
+  <div class="container">
+    <div class="box opacity-box">Opacity</div>
+    <div class="box alpha-box">Alpha</div>
+  </div>
+</body>
+</html>
