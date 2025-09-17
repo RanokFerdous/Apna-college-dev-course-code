@@ -1,0 +1,135 @@
+<!-- explain the flex direction  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    #container{
+        height: 500px;
+        /* width: 1400px; */
+        width: 80%;
+        background-color: azure;
+        margin: 15px auto;
+
+        border:2px solid black;
+
+        /* display */
+        display: flex;
+        flex-direction: row-reverse;
+
+        flex-direction: column;
+        flex-direction: column-reverse;
+         flex-direction: row;
+
+        /* justify content: distribute space */
+        justify-content: flex-start;
+        /* here, column-reverse and flex-start,
+        so start from down  to up*/
+        /* justify-content: flex-end; */
+        /* justify-content: baseline; */
+        justify-content: center;
+/* =================================================== */
+
+        justify-content: space-around;
+        justify-content: space-between;
+        justify-content: space-evenly;
+        justify-content:start;
+        justify-content: end ;
+
+        /* ======== */
+        flex-direction: row-reverse;
+        justify-content: start;
+         /* start:left-top */
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+
+        justify-content: space-around;
+        /* justify-content: space-between; */
+/* ========flex wrap======= */
+/* sets weather flex items are forced
+into 1 line or can wrap onto multiple lines */
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        flex-wrap: wrap;
+        flex-direction: row;
+/* ============align item  */
+        justify-content: baseline;
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    h1{
+        text-align: center;
+    }
+    #container div{
+        height: 70px;
+        /* 70 * 7 =490px take */
+        width: 300px;
+        /* 300*7=2100 > 1400 .
+        but 7 div are distribute
+        the 1400px width */
+        color:white;
+        text-align: center;
+        font-size: 1.5em;
+        align-items: start;
+        align-content: baseline;
+
+    }
+
+    #org{
+        align-self: flex-start;
+        flex-basis: 300px;
+        /* flex-basis -> is width */
+        flex-grow: 1;
+            /* some flex shorthand property  */
+        flex:2 2 100px;
+        flex: 2 100px;
+        flex:2;
+        flex: 100px;
+
+    }
+    #blue{
+        /* flex-grow: 2; */
+        flex-shrink: 1;
+
+    }
+
+
+
+   </style>
+</head>
+<body>
+    <h1>Flex playground</h1>
+   <div id="container">
+    <div style="background-color: purple;"> violet</div>
+     <div style="background-color: indigo;"> indigo</div>
+    <div  id="blue" style="background-color: blue;"> blue</div>
+     <div style="background-color: greenyellow;"> green</div>
+    <div style="background-color: yellow;"> yellow</div>
+    <div id="org" style="background-color: orange;"> orange</div>
+    <div style="background-color: red;"> red</div>
+   </div>
+</body>
+</html>

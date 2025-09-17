@@ -1,0 +1,96 @@
+<!-- explain the all flex property using a -->
+ <!-- FLEXBOX COMPLETE DEMO -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Playground</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+
+    /* ===== FLEX CONTAINER ===== */
+    #container {
+      display: flex;                  /* Enable Flexbox */
+      flex-direction: row;            /* row | row-reverse | column | column-reverse */
+      flex-wrap: wrap;                /* nowrap | wrap | wrap-reverse */
+      justify-content: space-around;  /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+      align-items: stretch;           /* stretch | flex-start | flex-end | center | baseline */
+      align-content: stretch;         /* stretch | flex-start | flex-end | center | space-between | space-around */
+
+      background: #f0f8ff;
+      border: 2px solid black;
+      width: 90%;
+      height: 500px;
+      margin: 0 auto;
+      padding: 10px;
+      gap: 10px;   /* space between flex items */
+    }
+
+    /* ===== FLEX ITEMS ===== */
+    .item {
+      flex: 1 1 150px;   /* flex-grow | flex-shrink | flex-basis */
+      /* flex-grow: 1 → expand if space available
+         flex-shrink: 1 → shrink if no space
+         flex-basis: 150px → starting width/height */
+      height: 80px;
+      color: white;
+      font-size: 1.2em;
+      text-align: center;
+      line-height: 80px;
+      border-radius: 8px;
+    }
+
+    /* Colors */
+    .violet { background: purple; }
+    .indigo { background: indigo; }
+    .blue   { background: blue; }
+    .green  { background: green; }
+    .yellow { background: goldenrod; }
+    .orange { background: orange; }
+    .red    { background: crimson; }
+
+    /* ===== INDIVIDUAL ITEM PROPERTIES ===== */
+    .grow {
+      flex-grow: 3;   /* grows 3x faster than others */
+    }
+    .shrink {
+      flex-shrink: 0; /* never shrink */
+    }
+    .basis {
+      flex-basis: 300px; /* default width = 300px */
+    }
+    .order {
+      order: -1;      /* move before others */
+    }
+    .self {
+      align-self: flex-end; /* align only this item at bottom */
+    }
+  </style>
+</head>
+<body>
+  <h1>🎯 Flexbox Playground</h1>
+  <h2>Container + Item Properties</h2>
+
+  <!-- FLEX CONTAINER -->
+  <div id="container">
+    <div class="item violet">Violet</div>
+    <div class="item indigo">Indigo</div>
+    <div class="item blue grow">Blue (grow)</div>
+    <div class="item green shrink">Green (no shrink)</div>
+    <div class="item yellow basis">Yellow (basis=300px)</div>
+    <div class="item orange self">Orange (align-self)</div>
+    <div class="item red order">Red (order -1)</div>
+  </div>
+
+  <p style="margin-top:20px; text-align:center;">
+    ✨ Try changing <code>flex-direction</code>, <code>justify-content</code>, <code>align-items</code> in CSS and reload to see the effect!
+  </p>
+</body>
+</html>
