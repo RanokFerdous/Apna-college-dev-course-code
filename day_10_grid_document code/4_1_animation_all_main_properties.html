@@ -1,0 +1,131 @@
+<!-- This is an HTML comment: explaining that the file will show animation properties -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Defines character encoding as UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes page responsive -->
+  <title>CSS Animation Cheat Sheet</title> <!-- Title of the page shown in browser tab -->
+
+  <style>
+    /* ---------- Global Page Styles ---------- */
+    body {
+      font-family: Arial, sans-serif;  /* Set font style */
+      background: #f0f0f0;             /* Light gray background */
+      padding: 20px;                   /* Add space around content */
+    }
+
+    h2 {
+      margin-top: 40px; /* Adds space above each heading */
+    }
+
+    /* ---------- Box Base Style ---------- */
+    .box {
+      width: 80px;               /* Box width */
+      height: 80px;              /* Box height */
+      margin: 20px;              /* Space around box */
+      /* display: inline-block; */
+      display: block;
+      display: inline;
+      /* note: inline-block, inline, block → different display behaviors,
+         but you tested them here. (Only the last one works = inline) */
+
+      background-color: #4CAF50; /* Green background */
+      color: white;              /* White text color */
+      font-weight: bold;
+
+      display: flex;             /* Flexbox → allows centering text */
+      justify-content:start;   /* Center text horizontally : x axis */
+      align-items:start;       /* Center text vertically :  y axis
+      here, start->top position,end->bottom position*/
+      border-radius: 10px;       /* Rounded corners */
+    }
+
+    /* ---------- 1. Animation Duration & Direction ---------- */
+    .animate-duration {
+      animation-name: moveRight;         /* Links to @keyframes moveRight */
+      animation-duration: 2s;            /* Animation lasts 2 seconds */
+      animation-iteration-count: infinite; /* Repeat forever */
+      /* animation-direction: alternate-reverse; */
+      /* Moves right → left → right if uncommented */
+      animation-direction: alternate;    /* Moves left → right → left */
+    }
+
+    @keyframes moveRight {
+      0%   { transform: translateX(0); }     /* Start at left */
+      100% { transform: translateX(200px); } /* Move 200px right */
+    }
+
+    /* ---------- 2. Animation Timing Function ---------- */
+    .animate-timing {
+      animation-name: moveDown;        /* Links to @keyframes moveDown */
+      animation-duration: 2s;          /* Animation lasts 2 seconds */
+      animation-timing-function: ease-in-out; /* Smooth start & end */
+      animation-iteration-count: infinite;   /* Repeat forever */
+      animation-direction: alternate;        /* Move down → up → down */
+    }
+
+    @keyframes moveDown {
+      0%   { transform: translateY(0); }     /* Start at top */
+      100% { transform: translateY(200px); } /* Move 200px down */
+    }
+
+    /* ---------- 3. Animation Delay ---------- */
+    .animate-delay {
+      animation-name: scaleUp;          /* Links to @keyframes scaleUp */
+      animation-duration: 2s;           /* Lasts 2 seconds */
+      animation-delay: 1s;              /* Wait 1 second before starting */
+      animation-iteration-count: infinite; /* Repeat forever */
+      animation-direction: alternate;   /* Grow → shrink → grow */
+    }
+
+    @keyframes scaleUp {
+      0%   { transform: scale(1); }     /* Normal size */
+      100% { transform: scale(1.5); }   /* 1.5x bigger */
+    }
+
+    /* ---------- 4. Animation Fill Mode ---------- */
+    .animate-fill {
+      animation-name: rotateBox;        /* Links to @keyframes rotateBox */
+      animation-duration: 2s;           /* Lasts 2 seconds */
+      animation-fill-mode: forwards;    /* Stay in final state after anim */
+       animation-iteration-count: infinite;
+    }
+
+    @keyframes rotateBox {
+      0%   { transform: rotate(0deg); }   /* Start not rotated */
+      100% { transform: rotate(360deg); } /* Spin full circle */
+    }
+
+    /* ---------- 5. Animation Shorthand ---------- */
+    .animate-shorthand {
+      /* Shorthand = name duration count direction timing */
+      animation: bounce 1s infinite alternate ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%   { transform: translateY(0); }   /* Start at bottom */
+      50%  { transform: translateY(-50px); } /* Jump up */
+      100% { transform: translateY(0); }   /* Fall down */
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Animation Cheat Sheet</h1>
+
+  <h2>1️⃣ Animation Duration & Direction</h2>
+  <div class="box animate-duration">Duration</div>
+
+  <h2>2️⃣ Timing Function (Ease In/Out)</h2>
+  <div class="box animate-timing">Timing</div>
+
+  <h2>3️⃣ Animation Delay</h2>
+  <div class="box animate-delay">Delay</div>
+
+  <h2>4️⃣ Fill Mode (Stay After Animation)</h2>
+  <div class="box animate-fill">Fill</div>
+
+  <h2>5️⃣ Shorthand Animation</h2>
+  <div class="box animate-shorthand">Shorthand</div>
+
+</body>
+</html>

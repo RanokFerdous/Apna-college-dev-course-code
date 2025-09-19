@@ -1,0 +1,133 @@
+<!-- upgrade animation code -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Interactive CSS Animations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      /* user-select: none; */
+      transition: transform 0.3s,
+       background 0.3s;
+      /* transition → smooth 0.3s effect
+      when background or transform changes. */
+    }
+
+    /* Auto animations */
+    .box.auto {
+        /* Applies auto animation to any
+         .box with class .auto. */
+    animation: float 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-40px); }
+    /* Defines the floating motion:
+
+    % → starting at Y=0.
+
+    100% → moves upward by 40px. */
+    }
+
+    /* Hover animation */
+    .box:hover {
+      animation: shake 0.5s ease-in-out infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(10deg); }
+      50% { transform: rotate(-10deg); }
+      75% { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
+      /* Shake keyframes: rotates left
+      and right quickly, like wobbling. */
+    }
+
+    /* Click animation (toggle class with JS) */
+    .clicked {
+      animation: pulse 0.6s ease-in-out 1 forwards;
+      /* Keeps the final state because of forwards. */
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); background-color: #4CAF50; }
+      50% { transform: scale(1.5); background-color: #FF5722; }
+      100% { transform: scale(1); background-color: #4CAF50; }
+    }
+
+    /* Different colors for demonstration */
+    .red { background: #E91E63; }
+    .blue { background: #2196F3; }
+    .green { background: #4CAF50; }
+    .purple { background: #9C27B0; }
+    .orange { background: #FF9800; }
+
+  </style>
+</head>
+<body>
+  <h1>Advanced Interactive CSS Animations</h1>
+
+  <div class="container">
+    <div class="box auto red" onclick="clickAnimate(this)">Red</div>
+    <div class="box auto blue" onclick="clickAnimate(this)">Blue</div>
+    <div class="box auto green" onclick="clickAnimate(this)">Green</div>
+    <div class="box auto purple" onclick="clickAnimate(this)">Purple</div>
+    <div class="box auto orange" onclick="clickAnimate(this)">Orange</div>
+    <!-- Each box has onclick="clickAnimate(this)" → runs
+      JS function when clicked. -->
+    </div>
+
+    <script>
+    function clickAnimate(box) {
+      box.classList.add('clicked');
+      // Remove the class after animation ends to allow retrigger
+      box.addEventListener('animationend', () => {
+        box.classList.remove('clicked');
+      }, { once: true });
+        }
+
+
+//     Defines a function clickAnimate(box).
+
+//    Adds .clicked class to the clicked box → triggers pulse animation.
+
+//     Listens for animationend event.
+
+//     Once animation finishes, removes .clicked → so you can
+//    click again to restart animation.
+
+//   { once: true } means event listener runs only once and then removes itself.
+           </script>
+
+    </body>
+    </html>

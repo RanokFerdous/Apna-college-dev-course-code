@@ -1,0 +1,91 @@
+<!-- example code: 3_4 grid topic -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Grid Playground</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #333;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Try: auto, px, %, minmax() */
+      grid-template-rows: 100px 100px;       /* Try: auto, px, fr */
+      gap: 15px;                             /* Try: 0, 5px, 20px */
+      border: 3px solid #222;
+      background: #fff;
+      padding: 10px;
+
+      /* Try uncommenting these: */
+      /* justify-items: center; */
+      /* align-items: center; */
+      /* justify-content: space-around; */
+      /* align-content: space-between; */
+      /* grid-auto-flow: column dense; */
+    }
+
+    .item {
+      background: #4CAF50;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+    }
+
+    /* Example of spanning */
+    .span2 {
+      grid-column: span 2;
+    }
+
+    .span3 {
+      grid-row: span 2;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Grid Playground 🚀</h1>
+
+  <h2>Basic Grid</h2>
+  <div class="grid">
+    <div class="item">1</div>
+    <div class="item span2">2 (span 2 cols)</div>
+    <div class="item">3</div>
+    <div class="item span3">4 (span 2 rows)</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+  </div>
+
+  <h2>Try Editing in VS Code:</h2>
+  <ul>
+    <li>Change <code>grid-template-columns</code> → <code>repeat(4, 1fr)</code></li>
+    <li>Change <code>gap</code> → <code>40px</code></li>
+    <li>Add <code>justify-items: center;</code></li>
+    <li>Add <code>align-items: end;</code></li>
+    <li>Add <code>grid-auto-flow: column dense;</code></li>
+  </ul>
+
+  <!-- With this file:
+
+You’ll see the grid structure immediately
+
+You can uncomment different properties and watch how the layout changes
+
+You can edit columns, rows, gap, alignment, spanning in real-time -->
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!-- expain the media query  -->
+ <!-- 🔹 What is a Media Query?
+
+Media Queries allow your website to adapt to different screen sizes, devices, or conditions (like light/dark mode, orientation, resolution).
+They are widely used in Responsive Web Design (RWD). -->
+
+<!-- @media (condition) {
+   /* CSS rules applied only if condition is true */
+} -->
+
+
+<!-- Common Media Query Features
+
+width / min-width / max-width → screen width control
+
+height / min-height / max-height → screen height control
+
+orientation → landscape or portrait
+
+aspect-ratio → screen proportion
+
+prefers-color-scheme → light or dark mode
+
+resolution → DPI for high-res devices -->
+
+<!-- ==============
+ Example with Your Two Images
+
+We’ll show different images depending on screen size and orientation. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Queries Example</title>
+  <style>
+    body {
+      margin: 30px;
+      padding: 10px;
+      text-align: center;
+      background: #f0f0f0;
+    }
+
+    img {
+      width: 80%;
+      max-width: 600px;
+      border: 4px solid black;
+      margin: 20px auto;
+      display: block;
+    }
+
+    /* Default: Show 1st image */
+    #img1 { display: block; }
+    /* #img2 { display: none; } */
+       #img2 { display: block; }
+
+    /* 📱 Small screens (mobile) */
+    @media (max-width: 600px) {
+        /* when width<600 */
+      body { background: lightblue; }
+      /* #img1 { display: none; } */
+      #img1 {display: block;}
+      #img2 { display: block; }
+    }
+
+    /* 💻 Medium screens (tablet) */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      body { background: lightgreen; }
+      img { width: 90%; }
+    }
+
+    /* 🖥️ Large screens (desktop) */
+    @media (min-width: 1025px) {
+        /* width>1025px */
+      body { background: lightyellow; }
+      img { width: 60%; }
+    }
+
+    /* 📲 Orientation  */
+    /* portrait => means: Y axis or normal
+    phone tall  */
+    @media (orientation: portrait) {
+      body { border: 10px solid red; }
+    }
+    /* landscape: phone is sleeping or bend  */
+    @media (orientation: landscape) {
+      body { border: 10px solid blue; }
+    }
+
+    /* 🌙 Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      body { background: #222; color: white; }
+      img { border-color: white; }
+    }
+
+    /* How to Enable Dark Mode
+    1. On Windows 10/11
+
+    Go to Settings → Personalization → Colors
+
+    Under Choose your color, pick Dark
+
+    Your browser (Chrome/Edge/Firefox) will detect it and apply the dark styles. */
+
+  </style>
+</head>
+<body>
+  <h1>Media Queries with Two Images</h1>
+  <img id="img1" src="chance.jpg" alt="Movie Scene">
+  <img id="img2" src="teach.jpg" alt="Girl with Idea">
+</body>
+</html>
+
+
+<!-- 🔹 Explanation of Code
+
+Default → Shows the movie scene (img1).
+
+max-width: 600px → On mobiles, hides img1, shows img2.
+
+min-width: 601px & max-width: 1024px → On tablets, background turns green.
+
+min-width: 1025px → On desktops, background turns yellow and image smaller.
+
+orientation: portrait → Red border.
+
+orientation: landscape → Blue border.
+
+prefers-color-scheme: dark → Dark mode support. -->

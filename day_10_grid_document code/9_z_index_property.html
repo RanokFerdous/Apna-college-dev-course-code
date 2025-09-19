@@ -1,0 +1,50 @@
+
+
+
+
+
+<!-- explain the z index property  -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Z-Index Demo</title>
+  <style>
+    .box {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      line-height: 150px;
+    }
+
+    .box1 {
+      background: red;
+      left: 40px;
+      top: 40px;
+      z-index: 10;
+    }
+
+    .box2 {
+      background: blue;
+      left: 80px;
+      top: 80px;
+      z-index: 5; /* higher, appears in front */
+    }
+
+    .box3 {
+      background: green;
+      left: 120px;
+      top: 120px;
+      z-index: -1; /* goes behind everything */
+    }
+  </style>
+</head>
+<body>
+  <div class="box box1">z=1</div>
+  <div class="box box2">z=5</div>
+  <div class="box box3">z=-1</div>
+</body>
+</html>

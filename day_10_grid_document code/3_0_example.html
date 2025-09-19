@@ -1,0 +1,140 @@
+<!-- example:grid -->
+<!-- Awesome 🚀
+Here’s a Responsive Grid Template Areas Layout. It uses media queries so that on smaller screens, the layout automatically rearranges: the sidebar and ads move under main, and the footer stays at the bottom.
+
+🔹 Responsive Grid Layout with Areas -->
+
+<!-- How It Works
+
+Desktop (width > 900px) → sidebar on left, ads on right, main in center.
+
+Tablet (≤ 900px) → sidebar & ads move below main.
+
+Mobile (≤ 500px) → everything stacks in one column. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Responsive Grid Template Areas</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+      }
+
+      .layout {
+        display: grid;
+
+        /* Default (desktop) layout */
+        grid-template-columns: 200px 1fr 1fr 150px;
+        /* grid-template-columns: 200px 1fr 1fr 150px; — Defines 4 columns: fixed 200px, flexible 1fr, flexible 1fr, fixed 150px. fr units share remaining space. */
+
+        grid-template-rows: 70px auto 60px;
+        /* Defines 3 rows: header 70px high, middle row grows (auto), footer 60px. */
+        gap: 10px;
+        min-height: 100vh;
+        /* min-height: 100vh; — Grid will be at least the full viewport height (so footer sits at bottom if content is short). */
+
+        grid-template-areas:
+          "header header header header"
+          /* First row: all four columns belong to the header area (header spans full width). */
+          "sidebar main main ads"
+          /* "sidebar main main ads" — Second row: col1 sidebar, col2 & col3 main (spans two columns), col4 ads. */
+          "footer footer footer footer";
+      }
+
+      /* Areas */
+      .header {
+        grid-area: header;
+        background: #2196f3;
+        color: white;
+      }
+      .sidebar {
+        grid-area: sidebar;
+        background: #4caf50;
+        color: white;
+      }
+      .main {
+        grid-area: main;
+        background: #ffeb3b;
+      }
+      .ads {
+        grid-area: ads;
+        background: #ff9800;
+        color: white;
+      }
+      .footer {
+        grid-area: footer;
+        background: #9c27b0;
+        color: white;
+      }
+
+      /* Shared styles */
+      .layout > div {
+        /* .layout > div { — Targets direct div children of .layout */
+        display: flex;
+        align-items: center;
+        /* Vertically centers the content inside each grid item. */
+        justify-content: center;
+        /* justify-content: center; — Horizontally centers the content inside each grid item. */
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 6px;
+        padding: 10px;
+      }
+
+      /* Responsive: tablet & mobile */
+      @media (max-width: 900px) {
+        /* Media query: apply enclosed rules when viewport width is 900px or less (tablet and smaller). */
+        .layout {
+          grid-template-columns: 1fr 1fr;
+          /* grid-template-columns: 1fr 1fr; — Switch to two equal columns. */
+          grid-template-rows: 60px auto auto auto 50px;
+          /* Defines 5 rows: header (60px), then three content rows (auto), footer (50px). */
+          grid-template-areas:
+            "header header"
+            /* "header header" — Row 1: header spans both columns. */
+            "main main"
+            /* "main main" — Row 2: main spans both columns (full width). */
+            "sidebar sidebar"
+            /* "sidebar sidebar" — Row 3: sidebar occupies full row under main. */
+            "ads ads"
+            "footer footer";
+        }
+      }
+
+      /* Extra small mobile */
+      @media (max-width: 500px) {
+        .layout {
+          grid-template-columns: 1fr;
+          grid-template-rows: 60px auto auto auto auto 50px;
+          grid-template-areas:
+            "header"
+            "main"
+            "sidebar"
+            "ads"
+            "footer";
+          /* "header" — Row 1: header.
+
+        "main" — Row 2: main.
+
+        "sidebar" — Row 3: sidebar.
+
+        "ads" — Row 4: ads.
+
+        "footer"; — Row 5: footer (the listing shows five strings but rows count in grid-template-rows includes header + 4 autos + footer — matching layout)F */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="header">Header</div>
+      <div class="sidebar">Sidebar</div>
+      <div class="main">Main Content</div>
+      <div class="ads">Ads</div>
+      <div class="footer">Footer</div>
+    </div>
+  </body>
+</html>

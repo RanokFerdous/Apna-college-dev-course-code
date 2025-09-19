@@ -1,0 +1,163 @@
+<!-- animation example 4_4 -->
+<!-- Blue Box (Duration) → Moves right & left every 2 seconds.
+
+Pink Box (Delay) → Starts after a 1-second wait.
+
+Green Box (Iteration) → Spins only 3 times, then stops.
+
+Orange Box (Direction) → Moves left → right → left using alternate-reverse.
+
+Purple Box (Timing) → Moves down & up smoothly (ease-in-out).
+
+Indigo Box (Fill Mode) → Fades out and stays faded.
+
+Brown Box (Shorthand) → Uses shorthand syntax (animation: name duration count direction easing). -->
+
+<!-- Full Advanced Animation Cheat Sheet with Explanations -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Supports all characters -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+  <title>CSS Animation Properties Cheat Sheet</title>
+
+  <style>
+    /* ---------- Base Page Styles ---------- */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0; /* Light gray background */
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;     /* Boxes wrap to next line if screen is small */
+      gap: 20px;           /* Space between boxes */
+      justify-content: center;
+      /*  */
+    }
+
+    /* ---------- Common Box Styles ---------- */
+    .box {
+      width: 140px;
+      height: 140px;
+      display: flex;
+      align-items: center;     /* Vertically center text  y axis*/
+      justify-content: center; /* Horizontally center text x axis */
+      color: white;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer; /* Pointer on hover */
+      text-align: center; /* Multi-line text centered */
+      padding: 10px;
+    }
+
+    /* ----------------- DEMOS ----------------- */
+
+    /* 1. Animation Duration */
+    .duration {
+      background: #2196F3; /* Blue */
+      animation: moveRight 2s infinite alternate; /* 2s duration */
+    }
+    @keyframes moveRight {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+
+    /* 2. Animation Delay */
+    .delay {
+      background: #E91E63; /* Pink */
+      animation: scaleUp 2s infinite alternate;
+      animation-delay: 1s; /* Wait 1s before starting */
+    }
+    @keyframes scaleUp {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.4); }
+    }
+
+    /* 3. Animation Iteration Count */
+    .iteration {
+      background: #4CAF50; /* Green */
+      animation: spin 2s 3 linear; /* Runs only 3 times */
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* 4. Animation Direction */
+    .direction {
+      background: #FF9800; /* Orange */
+      animation: bounceX 1s infinite alternate-reverse;
+    }
+    @keyframes bounceX {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(50px); }
+      /*  (+px ) =>means: center to right side in x axis*/
+    }
+
+    /* 5. Animation Timing Function */
+    .timing {
+      background: #9C27B0; /* Purple */
+      animation: drop 2s infinite ease-in-out;
+    }
+    @keyframes drop {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(60px);
+/* ( +px) means -> center to down in y axis */
+    }
+    }
+
+    /* 6. Animation Fill Mode */
+    .fill {
+      background: #3F51B5; /* Indigo */
+      animation: fadeOut 3s forwards; /* Keeps final state */
+    }
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0.2; }
+    }
+
+    /* 7. Shorthand Property */
+    .shorthand {
+      background: #795548; /* Brown */
+      animation: jump 1s infinite alternate ease-in-out;
+      /* Jump up and down repeatedly (because of alternate).
+
+Each jump slows in → speeds mid-air → slows out (because of ease-in-out). */
+    }
+    @keyframes jump {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-40px); }
+      /* -px => means center to up side. */
+    }
+
+    /*  8.*/
+    .short{
+        background-color: aqua;
+
+    }
+
+  </style>
+</head>
+<body>
+  <h1>CSS Animation Properties Cheat Sheet</h1>
+
+  <div class="container">
+    <!-- Each box demonstrates one animation property -->
+    <div class="box duration">Duration<br>(2s)</div>
+    <div class="box delay">Delay<br>(1s)</div>
+    <div class="box iteration">Iteration<br>(3 times)</div>
+    <div class="box direction">Direction<br>(Alt-Reverse)</div>
+    <div class="box timing">Timing<br>(Ease-in-out)</div>
+    <div class="box fill">Fill Mode<br>(Forwards)</div>
+    <div class="box shorthand">Shorthand<br>(All in one)</div>
+  </div>
+
+</body>
+</html>

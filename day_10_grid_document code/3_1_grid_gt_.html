@@ -1,0 +1,126 @@
+<!-- grid example: no code just explain property  -->
+ <!-- explain all property  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+  display: grid;
+}
+.container {
+  display: grid;
+  grid-template-columns: 100px 200px auto; /* 3 columns */
+  grid-template-rows: 100px 150px;         /* 2 rows */
+}
+
+grid-template-columns: 1fr 2fr 1fr; /* 3 columns, middle is 2x bigger */
+
+/* Space between grid items.=========== */
+.container {
+  gap: 20px;              /* both row & column */
+  row-gap: 10px;          /* only rows */
+  column-gap: 30px;       /* only columns */
+}
+
+/* grid-template-areas */
+
+/* You can name areas and arrange them. */
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 60px auto 40px;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main   { grid-area: main; }
+.footer { grid-area: footer; }
+
+/* justify-items, align-items
+
+Control how items are aligned inside their cells:
+
+start, end, center, stretch (default). */
+
+.container {
+  justify-items: center; /* horizontal */
+  align-items: start;    /* vertical */
+}
+
+/* ✅ place-items, place-content */
+
+.container {
+  place-items: center stretch;   /* align-items + justify-items */
+  place-content: center space-between; /* align-content + justify-content */
+}
+
+/* 3. Grid Item Properties
+
+These control individual items inside the grid:
+
+✅ grid-column / grid-row
+
+Tell an item where to start and end. */
+
+.item1 {
+  grid-column: 1 / 3; /* spans from column 1 to 2 */
+  grid-row: 1 / 2;   /* first row */
+}
+
+/* 👉 Shortcut: */
+grid-column: span 2; /* spans 2 columns */
+
+/* ✅ grid-area
+
+Can refer to:
+
+named area (if you used grid-template-areas)
+
+or shorthand: grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+
+.item2 {
+  grid-area: 2 / 1 / 4 / 3; /* row2 to row4, col1 to col3 */
+}
+
+/*
+✅ justify-self, align-self */
+
+/* Align a single item inside its cell. */
+.item3 {
+  justify-self: end;
+  align-self: center;
+
+  /* shorthand */
+  place-self: center end;
+}
+
+grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+
+/* ✅ minmax()
+
+Responsive sizes. */
+
+grid-template-columns: repeat(3, minmax(100px, 1fr));
+
+/* ✅ auto-fit & auto-fill
+
+Make grids responsive without media queries. */
+
+
+
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>

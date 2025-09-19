@@ -1,0 +1,95 @@
+<!-- example5 :grid -->
+ <!-- Great 🎯
+Here’s a Grid Template Areas Playground. This one shows how to build real layouts (header, sidebar, main, footer, ads) using grid-template-areas. You can edit the areas to see how items move around. -->
+
+<!-- With this file:
+
+You can change the grid-template-areas (just rewrite the strings)
+
+The items will move automatically without changing HTML order
+
+Perfect for practicing page layouts -->
+
+<!-- 🔹 Grid Template Areas Playground -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid Template Areas Playground</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .layout {
+      display: grid;
+
+      /* Grid with 4 columns and 3 rows */
+      grid-template-columns: 200px 1fr 1fr 150px;
+      grid-template-rows: 70px auto 60px;
+
+      gap: 10px;
+      height: 100vh;
+
+      grid-template-areas:
+        "header header header header"
+        "sidebar main main ads"
+        "footer footer footer footer";
+    }
+
+    /* Assign areas */
+    .header  { grid-area: header;  background: #2196F3; color: white; }
+    .sidebar { grid-area: sidebar; background: #4CAF50; color: white; }
+    .main    { grid-area: main;    background: #FFEB3B; }
+    .ads     { grid-area: ads;     background: #FF9800; color: white; }
+    .footer  { grid-area: footer;  background: #9C27B0; color: white; }
+
+    /* Shared styles */
+    .layout > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Grid Template Areas Playground 🏗️</h1>
+
+  <div class="layout">
+    <div class="header">Header</div>
+    <div class="sidebar">Sidebar</div>
+    <div class="main">Main Content</div>
+    <div class="ads">Ads</div>
+    <div class="footer">Footer</div>
+  </div>
+
+  <h2>Try Editing in VS Code:</h2>
+  <ul>
+    <li>Change <code>grid-template-columns</code> → <code>1fr 2fr 1fr</code></li>
+    <li>Change <code>grid-template-areas</code> to:</li>
+  </ul>
+
+  <pre>
+"header header header"
+"main main sidebar"
+"ads ads footer"
+  </pre>
+
+  <p>➡️ See how the boxes rearrange without touching HTML!</p>
+
+</body>
+</html>

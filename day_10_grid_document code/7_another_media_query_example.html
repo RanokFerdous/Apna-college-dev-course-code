@@ -1,0 +1,162 @@
+<!--another media query example here given i
+***** SIR , THIS NOT WORK PROPERLY . WHY ?
+1.Background-color-> can't see or change.   -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Media Query Properties</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        background-color: red; /* Default background */
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      img {
+        width: 250px; /* Default width of image */
+        border: 5px solid #333; /* Default border color */
+        border-radius: 10px; /* Rounded corners */
+        transition: all 0.5s ease; /* Smooth effect when width/border changes */
+      }
+
+      /* NOTE:***WHEN WIDTH =362px then y axis 2 picture,
+    if width> 362px ,then x axis 2 picture.  */
+      /* 🔹 1. Min & Max Width (Responsive design based on screen width) */
+      @media (max-width: 600px) {
+        body {
+          background: indianred;
+        } /* Small screens like phones */
+        img {
+          width: 150px;
+        } /* Make image smaller */
+      }
+
+      @media (min-width: 601px) and (max-width: 1024px) {
+        body {
+          background: lightgreen;
+        } /* Medium screens like tablets */
+        img {
+          width: 200px;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        body {
+          background: red;
+        } /* Large screens like laptops/desktops */
+        img {
+          width: 300px;
+        }
+      }
+      /* ⚡ On your HP laptop (14.6", 1920px wide) → this LAST rule applies → background will be lightpink, images will be 300px wide. */
+
+      /* 🔹 2. Orientation (Portrait vs Landscape) */
+      @media (orientation: portrait) {
+        h1::after {
+          content: " 📱 Portrait Mode"; /* Add text after <h1> in portrait */
+        }
+      }
+      @media (orientation: landscape) {
+        h1::after {
+          content: " 💻 Landscape Mode"; /* Add text after <h1> in landscape */
+        }
+      }
+      /* ⚡ Your laptop screen is landscape → it will show "💻 Landscape Mode". */
+
+      /* 🔹 3. Resolution (Detect Retina or HiDPI screens) */
+      @media (min-resolution: 2dppx) {
+        img {
+          border-color: red; /* If screen has >= 2 device pixels per CSS pixel */
+        }
+      }
+      /* ⚡ Your HP G10 has a Full HD (1920x1080) screen at ~14.6".
+          If Windows scaling is high-DPI (125%/150%), this might apply.
+          Otherwise, border stays default (#333). */
+
+      /* 🔹 4. Prefers Dark/Light Mode (User system setting) */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: orange;
+          color: greenyellow;
+        }
+        img {
+          filter: brightness(0.8) contrast(1.2);
+          border-color: white;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        body {
+          background: hotpink;
+          color: black;
+        }
+        img {
+          filter: brightness(1) contrast(1);
+          border-color: black;
+        }
+      }
+      /* ⚡ If you set Windows → Personalization → Colors → Dark Mode → the dark mode rules apply.
+          If Light Mode → the light mode rules apply. */
+
+      /* 🔹 5. Aspect Ratio (Detect screen proportions) */
+      @media (aspect-ratio: 16/9) {
+        body::after {
+          content: " 🎬 Screen is 16:9 ratio!";
+          display: block;
+          margin-top: 20px;
+          font-weight: bold;
+          color: darkblue;
+        }
+      }
+      /* ⚡ Your laptop screen is 1920x1080 → which is exactly 16:9 →
+          so it will show "🎬 Screen is 16:9 ratio!" under the page. */
+
+      /* 🔹 6. Print Media (When printing the page) */
+      @media print {
+        body {
+          background: blueviolet;
+          color: black;
+        } /* Printer-friendly colors */
+        img {
+          display: none;
+        } /* Don’t print images */
+        h1::after {
+          content: " 🖨 Printed Version";
+        }
+      }
+      /* ⚡ Only triggers when you try to Print (Ctrl + P).
+          Images will disappear, and "🖨 Printed Version" will appear after the title. */
+    </style>
+  </head>
+  <body>
+    <h1>Media Query Master Example</h1>
+    <p>Resize your screen, rotate device, or switch to dark mode 🌞🌙</p>
+
+    <!-- Replace with your HP G10 test images -->
+    <img src="nature.jpg" alt="Example 1" />
+    <img src="house.jpg" alt="Example 2" />
+  </body>
+</html>
+
+<!-- What This Covers
+
+Min-width / Max-width → Responsive layout (mobile/tablet/desktop).
+
+Orientation → Portrait 📱 vs Landscape 💻.
+
+Resolution (dppx) → Detects Retina/HD screens.
+
+Prefers-color-scheme → Dark 🌙 vs Light 🌞 mode.
+
+Aspect-ratio → Detects if screen is widescreen (16:9).
+
+Print media → Special style when printing 🖨. -->
