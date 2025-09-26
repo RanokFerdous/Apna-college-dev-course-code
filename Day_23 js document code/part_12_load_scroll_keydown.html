@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Listener Demo</title>
+  <style>
+    body {
+      height: 2000px; /* Scroll ইভেন্ট ডেমোর জন্য */
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 20px;
+      cursor: pointer;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>JS Event Listener Demo</h2>
+
+  <!-- Mouseout এর জন্য button -->
+  <button id="btn1">Hover and move mouse out</button>
+
+  <br><br>
+
+  <!-- Keypress / Keydown এর জন্য input -->
+  <input type="text" placeholder="Type here and check console" />
+
+  <p>👉 কনসোল (F12 → Console tab) খুলে আউটপুট দেখো</p>
+
+  <script>
+    // 🎯 1. mouseout event
+    let btn1 = document.getElementById("btn1");
+    btn1.addEventListener("mouseout", function () {
+      console.log("🖱️ Mouse went out of the button!");
+    });
+    //ans: after clicking the button , when we click outside the button box , then print mouse went out of the button . 
+
+    // 🎯 2. keydown event (keypress এর modern alternative)
+    let inp = document.querySelector("input");
+    inp.addEventListener("keydown", function (event) {
+      console.log("⌨️ Key pressed:", event.key, "| Code:", event.code);
+    });
+
+    // 🎯 3. scroll event
+    window.addEventListener("scroll", function () {
+      console.log("📜 You are scrolling the page!");
+    });
+    //when i scroll the page , then it print.
+
+    // 🎯 4. load event
+    window.addEventListener("load", function () {
+      console.log("✅ Page fully loaded (all resources ready)!");
+    });
+    // when i reload the page , then it print.
+  </script>
+</body>
+</html>

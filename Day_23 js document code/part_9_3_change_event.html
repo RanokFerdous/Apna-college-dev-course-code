@@ -1,0 +1,57 @@
+<!-- change event example  -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Change Event Example</title>
+</head>
+<body>
+  <h3>Type and leave input box:</h3>
+  <input type="text" placeholder="type here..." />
+  <p id="output"></p>
+
+  <script>
+    let inp = document.querySelector("input");
+    let output = document.querySelector("#output");
+
+    // change event
+    inp.addEventListener("change", function () {
+      output.innerText = "Change ইভেন্ট কাজ করলো: " + inp.value;
+    });
+  </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Input vs Change Event</title>
+</head>
+<body>
+  <h2>Input vs Change Event Demo</h2>
+
+  <input type="text" placeholder="Type something..." />
+  <p id="live"></p>
+  <p id="final"></p>
+
+  <script>
+    let inp = document.querySelector("input");
+    let live = document.querySelector("#live");
+    let final = document.querySelector("#final");
+
+    // 🔹 input event → টাইপ করার সাথে সাথে দেখাবে
+    inp.addEventListener("input", function () {
+      live.innerText = "👉 input event: আপনি লিখছেন = " + inp.value;
+    });
+
+    // 🔹 change event → শুধু ইনপুট শেষ করে বাইরে ক্লিক করলে বা Enter চাপলে দেখাবে
+    inp.addEventListener("change", function () {
+      final.innerText = "✅ change event: আপনি ফাইনালি লিখেছেন = " + inp.value;
+    });
+  </script>
+</body>
+</html>

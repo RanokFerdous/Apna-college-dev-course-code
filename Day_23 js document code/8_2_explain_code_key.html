@@ -1,0 +1,83 @@
+<!-- explain the code and key topic : -->
+
+
+ <!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="input" placeholder="type here" />
+    <button>click me , bro!</button>
+
+    <script>  // js code below:
+      let inp = document.querySelector("input");
+
+     inp.addEventListener("keydown", function(event){
+        console.log("key =", event.key);
+        console.log("code =", event.code);
+
+        console.log("key was pressed. ");
+     })
+    </script>
+  </body>
+</html> -->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key vs Code</title>
+</head>
+<body>
+  <h2>Press any key</h2>
+  <p id="output">Waiting...</p>
+
+  <script>
+    const output = document.getElementById("output");
+
+    document.addEventListener("keydown", function(event) {
+      output.textContent = `event.key = ${event.key}, event.code = ${event.code}`;
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!-- small game create -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyboard Event Example</title>
+  </head>
+  <body>
+    <input type="text" placeholder="type here" />
+    <button>click me, bro!</button>
+
+    <script>
+      let inp = document.querySelector("input");
+
+      inp.addEventListener("keydown", function (event) {
+        console.log("code =", event.code);
+
+        // check arrow keys
+        if (event.code === "ArrowUp") {
+          console.log("character move Up");
+        } else if (event.code === "ArrowDown") {
+          console.log("character move Down");
+        } else if (event.code === "ArrowLeft") {
+          console.log("character move Left");
+        } else if (event.code === "ArrowRight") {
+          console.log("character move Right");
+        }
+      });
+    </script>
+  </body>
+</html>

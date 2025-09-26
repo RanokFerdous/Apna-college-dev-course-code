@@ -1,0 +1,27 @@
+<!-- input event example:  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Input Event Example</title>
+</head>
+<body>
+  <h3>Type something:</h3>
+  <input type="text" placeholder="type here..." />
+  <p id="output"></p>
+
+  <script>
+    let inp = document.querySelector("input");
+    let output = document.querySelector("#output");
+
+    // input event
+    inp.addEventListener("input", function () {
+      output.innerText = "আপনি লিখলেন: " + inp.value;
+    });
+  </script>
+</body>
+</html>
+
+
+

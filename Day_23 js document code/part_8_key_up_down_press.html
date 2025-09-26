@@ -1,0 +1,45 @@
+<!-- Topic: keyup , keydown, keypress.  -->
+<!--
+Practical Example -->
+
+<!-- Here’s a simple HTML + JS example that shows key events in action: -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Keyboard Events Demo</title>
+</head>
+<body>
+  <h2>Press any key ⌨️</h2>
+  <p id="output">Waiting for key...</p>
+
+  <script>
+    const output = document.getElementById("output");
+
+    document.addEventListener("keydown", (event) => {
+      output.textContent = `Key Down: ${event.key}`;
+    });
+    //  when any key press, print: key Down: e
+
+    document.addEventListener("keyup", (event) => {
+      output.textContent = `Key Up: ${event.key}`;
+    });
+
+    // after pressing key, when release the key , then
+    //print: key Up :e
+    document.addEventListener("keypress", (event) => {
+      console.log(`Key Press: ${event.key}`);
+
+      // in the same time , when click any key on keyboard , then print in console:  key press : e
+    });
+
+
+    // output: when any key ( letter, number, character ) press, then print in webpage: key down : a / b/d/4/# and when release the key print: key up : a /b/d/4/# and in console print: key press: a / b/d/ 4/ #
+    
+    // when press up, down , left or right arrow key , then print:
+    //  webpage: keyup : ArrowUp, ArrowDown, ArrowLeft,ArrowRight.
+
+  </script>
+</body>
+</html>

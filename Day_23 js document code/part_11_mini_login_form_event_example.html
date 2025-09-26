@@ -1,0 +1,148 @@
+<!-- Perfect 👍 Let’s build a mini login form that shows how different form events (input, change, focus, blur, submit) work together. -->
+
+
+<!-- 🎯 Features in this demo
+
+input event → live validation while typing username.
+
+blur event → checks password only when you leave the field.
+
+focus event → logs when username field is focused.
+
+change event → logs password when you leave after typing.
+
+submit event → prevents empty or invalid submission.
+
+reset event → clears error messages when reset is clicked.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Events Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    form {
+      max-width: 300px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    input {
+      width: 95%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input:focus {
+     /* when click  input box,
+      then saw blue border */
+      border-color: blue;
+      outline: none;
+    }
+    .error {
+    /*  password must be error,
+    show it red color.  */
+      color: red;
+      font-size: 14px;
+    }
+    button {
+ /* login and reset button   */
+      padding: 8px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Login Form (Form Events Demo)</h2>
+
+  <form id="loginForm">
+    <label>Username:</label><br>
+    <input type="text" id="username" placeholder="Enter username">
+    <p id="userError" class="error"></p>
+
+    <label>Password:</label><br>
+    <input type="password" id="password" placeholder="Enter password">
+    <p id="passError" class="error"></p>
+
+    <button type="submit">Login</button>
+    <button type="reset">Reset</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+    const userError = document.getElementById("userError");
+    // when user give error password
+    const passError = document.getElementById("passError");
+
+    // input event → **live validation( live show error
+    //  in red color untill give >=3 char )
+    username.addEventListener("input", () => {
+      if (username.value.length < 3) {
+        userError.textContent = "Username must be at least 3 characters.";
+      } else {
+        userError.textContent = "";
+      }
+    });
+
+    // blur event → check when leaving the field
+    // why blur ?
+    password.addEventListener("blur", () => {
+      if (password.value.length < 6) {
+        passError.textContent = "Password must be at least 6 characters.";
+      } else {
+        passError.textContent = "";
+      }
+    });
+    //--------------
+    // focus event → highlight field
+    // when click in input box, then it print.
+    //here, click means=> focus.
+    // also we use css property=>
+    //  input:focus in style section
+    username.addEventListener("focus", () => {
+      console.log("Username field focused");
+    });
+    //===============
+
+    // change event → only fires when focus is lost, means after password given , when i go out of input box or click outside of password input box. then it print.
+    password.addEventListener("change", () => {
+      console.log("Password field changed:", password.value);
+    });
+    //================
+    // submit event → final check
+    form.addEventListener("submit", (event) => {
+      event.preventDefault(); // prevent page reload
+      // it prevent to go to default page /action .
+
+      if (username.value === "" || password.value === "") {
+        alert("Please fill in all fields.");
+      } else if (userError.textContent || passError.textContent) {
+        alert("Please fix errors before submitting.");
+      } else {
+        alert("✅ Login successful!");
+      }
+    });
+
+    // reset event
+    form.addEventListener("reset", () => {
+        // create empty  string these textContent userError and passError.
+        // so we not see anythings.
+      userError.textContent = "";
+      passError.textContent = "";
+      console.log("Form reset!");
+    });
+  </script>
+
+</body>
+</html>

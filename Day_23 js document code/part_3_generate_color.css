@@ -1,0 +1,29 @@
+/* css for genereate color:  */
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#colorBox {
+  margin: 30px auto;
+  width: 60%;
+  height: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+

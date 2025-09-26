@@ -1,0 +1,74 @@
+
+<!-- a game using arrow key , you can move your box any direction , like left , right , up or down.  -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,
+   initial-scale=1.0">
+  <title>Move Box with Arrow Keys</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #gameArea {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border: 2px solid black;
+      margin: 20px auto;
+      background: #f0f0f0;
+    }
+
+    #player {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: red;
+      top: 175px;  /* center vertically */
+      left: 175px; /* center horizontally */
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Use Arrow Keys to Move the Box ⬆️⬇️⬅️➡️</h2>
+  <div id="gameArea">
+    <div id="player"></div>
+  </div>
+
+  <script>
+    const player = document.getElementById("player");
+    let posX = 175; // starting left position
+    //take 175 from left in x axist. left:175px;
+    let posY = 175; // starting top position
+    // take from top: 175px;
+    const step = 20; // move step size
+
+    document.addEventListener("keydown", function(event) {
+      if (event.code === "ArrowUp") { // reduce upper space.
+        posY -= step;
+      } else if (event.code === "ArrowDown") {
+        posY += step;
+      } else if (event.code === "ArrowLeft") {
+        posX -= step;
+      } else if (event.code === "ArrowRight") {
+        posX += step;
+      }
+
+      // prevent moving outside the game area
+      posX = Math.max(0, Math.min(posX, 350));
+      //  box width in x axis : 0 to 350px.
+      posY = Math.max(0, Math.min(posY, 350));
+
+      // update player position
+      player.style.left = posX + "px";
+      player.style.top = posY + "px";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!--  topic: part_9 : form event  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/action">
+        <input type="text" placeholder="username"/>
+        <button>Resister</button>
+
+    </form>
+    <!-- <script>
+
+        let form =document.querySelector("form");
+
+        form.addEventListener("submit", function (){
+            alert ("form submitted");
+        });
+    </script>
+    this page take us default url page: /action
+    -->
+
+    <!-- question :  how can we not go default url page , /action ? .  for this we have to use:
+     event.preventDefault(); this keep us in the same same. after resister button and alert option ok click.
+     -->
+
+
+
+  <!-- <script>
+    // how to avoid to go default url page go?
+
+    let form =document.querySelector("form");
+
+    form.addEventListener("submit", function (event){
+        event.preventDefault(); //vip
+        alert("form submitted. ");
+    });
+
+  </script> -->
+
+
+  <script>
+    //  questin : how can we  see input data, after give input?
+
+    let form =document.querySelector("form");
+
+    form.addEventListener("submit", function (event){
+        event.preventDefault(); //vip
+
+
+    let inp =document.querySelector("input");
+    console.dir(inp); // ans: print input property
+
+   // console.log(inp.innerText);
+    //Note: here innerText can't print  like h1 or other tags.
+    //=======
+     //Input will be store in input  value property: which
+     //  has in input propety ->value. so , we have to print the input property value.
+
+     console.log( inp.value); // ans: this give which i give as input.
+  });
+
+
+  </script>
+
+
+</body>
+</html>

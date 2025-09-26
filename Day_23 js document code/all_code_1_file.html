@@ -1,0 +1,484 @@
+<!-- all code in this file save  -->
+
+
+HTML CODE EDITOR CODE:
+
+/*
+
+
+<!-- part_1 document code :
+ topic: 1. DOM Event ,
+ topic: 2. Mouse Pointer ,
+ topic: 3. Event Listeners
+ topic: 4 Activity
+ topic: 5. Event Listeners for Elements
+ topic: 6. this in Event Listeners
+ topic: 7. Keyboard Events.
+ topic: 8. Form event
+ topic: 9. Extracting Form Data
+ topic: 10.More Events.
+
+ -->
+
+ <!-- topic: 01 . DOM Events.  -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <title>js</title>
+  </head>
+  <body>
+   <button onclick="console.log('button was clicked.');
+   console.log( '5minutes school . ')"  > click me </button>
+
+    <!--<script src="app_1.js"> </script>-->
+  </body>
+  </html>
+
+  <!-- NOTE: after run, html file, when click the button
+  , in console print this 2 line as output.  -->
+
+<!-- ============================================= -->
+
+
+Topic: 02 DOM Event :
+
+ onclick ( when an element is clicked. )
+ onmouseenter ( when mouse enters an element)
+
+ js code:
+
+ // topic: 02 onlick property
+
+ let btn =document.querySelector("button");
+  console.dir( btn);
+
+ btn.onclick= function (){
+    console.log("button was clicked.");
+    alert("button was clicked for alert show.");
+}
+
+//when button click this will be print and show alert.
+
+//**** another way to use:  onlick as fucntion */
+//===========================
+app_1.js file:
+
+ let btn =document.querySelector("button");
+  console.dir( btn);
+
+function sayHello (){
+    alert("hello!");
+}
+
+btn.onclick= sayHello;
+// output: hello as an alert show.
+//================ ####======
+
+
+
+
+
+
+
+
+topic: for multiple onclick button  :
+part_2_multiple_onclick.html<!-- for multiple onclick  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    ......
+    <title>Document</title>
+</head>
+<body>
+
+    <button>Like me!</button>
+    <button>Like me 2!</button>
+    <button>Like me 3!</button>
+    <button>like me 4!</button>
+    <script src="app_2.js"></script>
+</body>  </html>
+//==============================
+app_2.js file:
+// for multiple button click
+
+let btns= document.querySelectorAll("button");
+
+for( btn of btns){
+    btn.onclick=sayHello;
+}
+
+function sayHello (){
+    alert("hello bro !");
+}
+
+<!-- ans: when we click any button , it show alert
+and print : hello !-->
+
+<!--==============================-->
+
+Topic: onmouseenter
+js file:
+// for hover print js part:
+let btns1= document.querySelectorAll("button");
+
+for( btn of btns1){
+
+
+    btn.onmouseenter= function (){
+        console.log("you entered a button  using mouseeneter. ");
+
+// NOTE: when the mouse cursor will be hover /click on the button ,
+// Then print:  you entered a button using mouseeneter
+    }
+    console.log(btn);
+}
+<!--================-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Topic: addEventListener topic:
+( *** same html file )
+app_2.js file:
+
+//syntax:
+// Element.addEventListener ( event, callback)
+
+let btns3 = document.querySelectorAll("button");
+
+// loop through all buttons
+for (let btn3 of btns3) {
+    // attach multiple event listeners to each button
+    btn3.addEventListener("click", sayHello);
+    btn3.addEventListener("click", sayName);
+}
+
+// function 1
+function sayHello() {
+    alert("hello, I alert you.");
+}
+
+// function 2
+function sayName() {
+    alert("ranok my name.");
+    console.log( "i am ronk . ");
+}
+
+//output: when click anybutton,give 2 alert and print ..
+//==================
+
+***seach on mdn: for more about addEventListener other methods .
+like : mouse events : click, dblclick, .........
+
+//==============
+
+
+Topic; double click ( dblclick ) learn
+( NOTE: when any button click double times very fast, then print ) .
+
+
+let btns4 = document.querySelectorAll("button");
+
+// loop through all buttons
+for (let btn5 of btns4) {
+    // run this when button is double-clicked
+    btn5.addEventListener("dblclick", function () {
+        console.log("you double clicked me!..");
+        sayName();
+    });
+}
+
+// function 2
+function sayName() {
+    alert("ranok my name.");
+    console.log("i am ronk.");
+}
+
+// console o/p: alert show
+//and print: you double clicked me!.. . i am ronk.
+//=====================
+
+
+
+
+**********
+Topic: create a rondom color generator
+part_3_generate_color.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+  <title>Random Color Generator</title>
+  <link rel="stylesheet" href="part_3_generate_color.css">
+</head>
+<body>
+
+  <h2>Generate a random color</h2>
+
+  <button id="colorBtn">Generate Color</button>
+
+  <div id="colorBox">
+    This is your new color
+  </div>
+   <script src="app_3.js"></script>
+</body>
+</html>
+
+//=====================
+part_3_generate_color.css file:
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#colorBox {
+  margin: 30px auto;
+  width: 60%;
+  height: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+//=====================
+
+app_3.js file:
+
+// select the button and the color box
+const btn = document.getElementById("colorBtn");
+const box = document.getElementById("colorBox");
+
+// function to generate a random color
+function getRandomColor() {
+  const r = Math.floor(Math.random() * 256); // red (0–255)
+  const g = Math.floor(Math.random() * 256); // green (0–255)
+  const b = Math.floor(Math.random() * 256); // blue (0–255)
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+// add event listener to button
+btn.addEventListener("click", function () {
+    let h2= document.querySelector("h2");
+    let randomColor =getRandomColor();
+    h2.innerText=randomColor;
+    h2.style.color="blue";
+
+  const newColor = getRandomColor();
+  box.style.backgroundColor = newColor;
+  box.textContent = `This is your new color: ${newColor}`;
+});
+
+//=======================
+ouptut:
+
+
+
+
+
+
+
+
+
+
+//=================
+/topic: element event listener
+here,explain , paragraph and div
+*** when click paragraph or box , print somethings.
+
+part_4_element_event_listener.html
+
+<!-- Topic: 4 :EventListener for element: <p> , ... -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        .....
+        <link rel="stylesheet" href="part_4.css">
+    </head>
+    <body>
+        <p>this is paragraph.</p>
+        <div class="box">
+
+        </div>
+        <script src="app_4.js"></script>
+    </body> </html>
+
+  part_4.css file:
+
+  /* css style */
+  .box {
+      height: 100px;
+      width: 100px;
+      background-color: palegreen;
+      border: 1px solid black;
+  }
+
+  //app_4.js file:
+  // element eventListener
+
+  let p = document.querySelector("p");
+
+  p.addEventListener( "click", function (){
+
+      console.log("parah was clicked");
+  });
+
+  let box =document.querySelector(".box"); //class select
+  box.addEventListener("mouseenter",function (){
+      console.log("mouse inside box.");
+  });
+
+  //o.p:*** when click paragraph or box , print somethings.
+//=============================
+
+Topic: this  =>  property learn example:
+
+part_5_this_event_listener.html  file:
+
+
+<!-- Topic: this event listener
+
+NOTE: ** when 'this' is used in a callback of event handler of
+something, it refers to that somethings.-->
+<!--
+NOTE: it is a complex topic ,, but important this is.
+ NOTE : when we created any eventlister or event handler
+ for any object.
+ then,   We have 2 variable (  event, callback).
+ In callback   => we use the this . This refers to why
+ the eventListener  are created .
+  -->
+
+  <!DOCTYPE html>
+
+  <body>
+     <button>click me! please.</button>
+     <script src="part_5.js"></script>
+  </body> </html>
+  //=========================
+  .css file: is empty.
+
+  //part_5.js file:
+  //  topic: this : learn about this peroperty .
+  let btn =document.querySelector("button");
+
+     btn.addEventListener("click",function (){
+    console.log(this);
+    //o.p: every time button click there will be print:
+    // <button> click me! please </button>
+
+    console.dir (this); // show all button property
+    //, some are:
+    // button
+    //  accessKey: "",
+    //  ariaActiveDescendantElement : null,
+    //  ariaAtomic : null,
+    //  ariaAutoComplete :null
+    //.......
+    //......
+
+    console.dir(this.innerText);
+    //o.p: print  innerText which has in the button , here
+    // click me! please.
+    this.style.backgroundColor="blue";
+    //op: button er background color now blue.
+
+  //      NOTE : when we use this
+  // When :  we want to print single event listener from the multiple
+  // Event listener or multiple objects.
+
+  })
+
+//===============================
+  //**** note we can use this property on
+  //element like: p, h1 ,h2, button,  or any other element.  */
+
+
+  problem : 1:
+  <!-- example on : this topic:
+ Question : we want when we click any text on
+ the page then it's color will Be changed  into blue .  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   ... <title>js this topic</title>
+</head>
+<body>
+    <p>this is paragraph. ok </p>
+    <h1>use of 'this' in Event Listeners</h1>
+    <h3>Let's demo it on element</h3>
+    <button> click me ! please. </button>
+    <script src="app_6.js"></script>
+</body>  </html>
+//==============
+  .js file:
+  // Question : we want when we click any text
+  //on the page then it's color will Be changed  into blue .
+
+  // Process 1:  select all tag indivisually
+  let btn =document.querySelector("button");
+  let p = document.querySelector("p");
+  let h1=document.querySelector("h1");
+  let h3 = document.querySelector("h3");
+
+  // work
+  btn.addEventListener("click",function(){
+          console.dir(this.innerText);
+          this.style.backgroundColor="blue";
+  });
+
+  //note : now use same for diff element.
+  p.addEventListener("click",function(){
+          console.dir(this.innerText);
+          this.style.backgroundColor="blue";
+  });
+
+  // remove reduncy using function .
+  function changecolor (){
+      console.dir(this.innerText);
+      this.style.backgroundColor="blue";
+  }
+
+  h1.addEventListener("click",changecolor);
+  h3.addEventListener("click",changecolor);
+  //=========####$$$$$$$$$%%%%%%===
+
+
+
+
+
+  =======================================

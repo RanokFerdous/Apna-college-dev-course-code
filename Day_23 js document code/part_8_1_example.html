@@ -1,0 +1,30 @@
+<!-- another example of key press , event key  -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="input" placeholder="type here" />
+    <button>click me , bro!</button>
+
+    <script>
+      let inp = document.querySelector("input");
+
+      inp.addEventListener("keydown", function () {
+        console.log("key was pressed. ");
+      });
+      // o.p: when press any key: then print: key was pressed.
+
+      inp.addEventListener("keyup", function () {
+        console.log("key was released. ");
+      });
+      // after long time /short time pressing, when release key , then print this line: key was released.
+    </script>
+  </body>
+</html>
