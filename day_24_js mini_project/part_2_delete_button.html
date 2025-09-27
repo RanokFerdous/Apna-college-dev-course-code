@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<body>
+    <h1>Todo App</h1>
+    <input type="text" placeholder="enter your task"/>
+    <button>Add Task</button>
+    <ul>
+        <li>eat <button class="delete">delete</button></li>
+        <li>sleep <button class="delete">delete</button></li>
+    </ul>
+
+    <script>
+        let btn = document.querySelector("button");
+        let ul = document.querySelector("ul");
+        let inp = document.querySelector("input");
+
+        // Add task when clicking the button
+        btn.addEventListener("click", function () {
+            if (inp.value.trim() === "") return; // prevent empty tasks
+            // after click btn
+            // step1: create  a list or li
+            //step2: crate a delete button or delBtn
+            //step3: append delete button to li
+            // step 4: append li to ul
+            // step 5: add the  functionality of delBtn when
+
+            //  create li
+            let item = document.createElement("li");
+            item.innerText = inp.value + " ";
+
+            // create delete button
+            let delBtn = document.createElement("button");
+            delBtn.innerText = "delete";
+            delBtn.classList.add("delete");
+            // give an class delete of delBtn
+
+            // ✅ add delete functionality
+            delBtn.addEventListener("click", function () {
+                let par = this.parentElement;
+                // delBtn er paraent is li and we
+                //  delete the  specific list
+                par.remove();
+            });
+
+            // append delete button to li
+            item.appendChild(delBtn);
+
+            // append li to ul
+            ul.appendChild(item);
+
+            // clear input
+            inp.value = "";
+        });
+
+        // ✅ also fix existing delete buttons (eat, sleep)
+        let delBtns = document.querySelectorAll(".delete");
+        for (let delBtn of delBtns) {
+            delBtn.addEventListener("click", function () {
+                let par = this.parentElement;
+                console.log(par); // show parent.
+                par.remove();
+            });
+        }
+
+        // it will not work for new element , but here work .
+
+        // we use event deliagation property , to solve this problem .
+
+        // NOTE: in button , eventListener , not work button.
+
+        
+    </script>
+</body>
+</html>

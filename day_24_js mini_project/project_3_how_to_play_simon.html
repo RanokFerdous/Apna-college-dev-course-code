@@ -1,0 +1,266 @@
+<!-- project:3 how  to play simon  -->
+
+ <!-- NOW ,write the code: -->
+ <!-- In this game , we have to memorize the sequence the game -->
+
+ <!-- html code -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+     body{
+         text-align: center;
+    }
+
+    .btn{
+        height: 200px;
+        width: 200px;
+        border-radius: 20px;
+        border: 10px solid black;
+        margin: 2.5rem;
+    }
+
+    .btn-container {
+        display: flex;
+        /* take button in same line. */
+        justify-content: center;
+    }
+
+    .yellow{  background-color: orange;}
+    .red{ background-color: red;}
+    .purple{ background-color: purple;}
+    .green{background-color: greenyellow;}
+
+    /* for button flash */
+    .flash{
+        background-color: white;
+    }
+
+    .userFlash {
+        background-color: green;
+        /*  which buttton click the user, that will be green. */
+    }
+
+            </style>
+ </head>
+ <body>
+    <h1>Simon Says Game</h1>
+    <h2>Press any key to start the game</h2>
+    <div class="btn-container">
+        <div class="line-one">
+        <!-- give id ,so that we can detect color of specific color class. -->
+            <div class="btn red" type="button" id="red"> 1 </div>
+            <div class="btn yellow" type="button" id ="yellow"> 2 </div>
+
+        </div>
+        <div class="line-two">
+            <div class="btn green" type="button" id="green"> 3</div>
+            <div class="btn purple" type="button" id="purple"> 4</div>
+
+        </div>
+    </div>
+
+    <script>
+
+        //js file 1st code:
+
+        // step 1: press any button  for start button . .
+        // step 2: after press button , button will be flash and level will be 1.
+        // step: we have to create gameSequence and userSequence.
+        // step : userSequence will be restart every time.
+        // step: 3 when press any button , then check ( userSq == gameseq) , => for check we use : the eventListener .
+
+        //
+
+        // code: 1 : button press print
+        //  document.addEventListener("keypress", function(){
+
+        // console.log("game is started.");
+
+        //  });
+
+
+
+    let gameSeq=[];
+    let userSeq=[];
+
+    let btns=["yellow","red","purple","green"];
+
+    let started=false;
+    let level=0;
+
+    let h2=document.querySelector("h2");
+
+    //step 1:
+    document.addEventListener("keypress", function(){
+    if(started==false){
+        console.log("game is started.");
+        started=true;
+        //Game is started,  now  though  press the any key , nothing will be  Happen.
+
+    //step 2: create level up function . after game start level will be up using levelUp( )  function here.
+        levelUp();
+    }
+  });
+
+// step: 2 level up create and do some work like i ) level up
+//ii ) button flash , iii)  h2 tag er text change to => level 1 , level2 ,...
+
+function levelUp(){
+    // when level up function wll be call , we reset the userSequce to empty value.
+    // becasue everytime user have to press the sequence ..
+    userSeq= [];
+
+    level++; // i) level up workS
+
+    h2.innerText=`Level ${ level}`; // iii)  update level
+
+    //random button choice from below color:
+    //     let btns=["yellow","red","purple","green"];
+
+    let randIdx =Math.floor(Math.random()* 3);
+    let randColor =btns[randIdx];
+    let randbth =document.querySelector(`.${randColor}`);
+
+    console.log(randIdx);
+    console.log(randbth);
+    console.log(randColor);
+
+    // ** after generate random color, push the color in the game sequence
+    gameSeq.push(randColor);
+    console.log(gameSeq);  // print array .
+
+    // now flash the button .
+    gameFlash(randbth);
+
+
+
+
+    // ii)
+    // since button flash wiill be use many time , so create a function .
+
+}
+
+// when button will be flash , then button er bg color
+// will be white. for little time
+function gameFlash (btn){   // work: ** white color making when white color.
+    btn.classList.add("flash");  // create flash cladd in btn .
+    // create a flash class in css for give color.
+    setTimeout (function (){
+        btn.classList.remove("flash");
+    },250);
+    // after 1s btn will be removed.
+}
+
+
+function userFlash (btn){ // work: make green color when flash
+    btn.classList.add("userFlash");  // create flash cladd in btn .
+    // create a flash class in css for give color.
+    setTimeout (function (){
+        btn.classList.remove("userFlash");
+    },250);
+    // after 1s btn will be removed.
+}
+
+
+
+
+
+    // step : 3  chose random button
+
+
+// now button Event Listener  add class: 08
+
+function btnPress(){
+    console.log("button was pressed.");
+    // track the button . ... using this.
+    console.log(this); // print which button i click . if click green button then.
+    // example: <div class="btn green" type="button"> 3 </div>
+    let btn =this;
+    userFlash(btn);
+
+    //  user color store when button press.
+    userColor =btn.getAttribute("id");
+    //  using getAttribute we collect id attribute value and that is equal to color.
+    console.log(userColor);
+    // now store user color to the userSequence
+    userSeq.push(userColor);
+
+    // now check userSeq color and gameSeq color are same or not?  , so we create new function for check.
+
+   // checkAns();
+
+   // since we check the last index button color , so
+   checkAns(userSeq.length-1);
+
+
+
+}
+
+// each level generate only 1 color, the color are same.
+function  checkAns(idx){
+
+    console.log("curr level:", level);
+
+   // let idx= level -1;
+    if(userSeq[idx]===gameSeq[idx]){
+        console.log("same value");
+
+        // two case : middle or last in sequence
+
+        if(userSeq.length ===gameSeq.length){
+           // levelUp(); // it increase level and generate new random color.
+           // give delay on level up , so going 1 level to another level take some time
+
+           setTimeout(levelUp, 1000);
+        }
+
+    }else {
+        //class : 11 print score.
+
+        h2.innerHTML = `Game over! Your score was <b>${level}</b><br>Press any key to start.`;
+
+        // all body set red when wrong.
+        document.querySelector("body").style.backgroundColor="red";
+        setTimeout (function () {
+            document.querySelector("body").style.backgroundColor ="red";
+
+        }, 150);  // red color will stay 150 milisecond.
+
+        //h2.innerText=`gameover . Press any key to start.`;
+        //class 10: reset. after game over we have to reset .
+        reset();
+    }
+}
+
+let allBtns=document.querySelectorAll( ".btn");
+// all button class will be come in allBtn .
+
+    for ( btn of allBtns){
+        btn.addEventListener("click",btnPress);
+    }
+
+
+
+
+
+// note: *** we use many place btn variable.
+// they are scope variable so not clash
+
+
+function reset(){
+    started=false;
+    gameSeq=[];
+    userSeq=[];
+    level=0;
+
+
+}
+
+    </script>
+ </body>
+ </html>

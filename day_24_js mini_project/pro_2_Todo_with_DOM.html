@@ -1,0 +1,53 @@
+<!-- project: 2 (mini): Todo with DOM  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todo App</h1>
+    <input type="text" placeholder="enter your task"/>
+    <button>Add Task</button>
+    <ul>
+        <li>eat</li>
+        <li>sleep</li>
+    </ul>
+    <!--  js code 1:   -->
+    <!-- <script>
+        let btn=document.querySelector("button");
+        let ul =document.querySelector("ul");
+        let inp =document.querySelector("input");
+
+        btn.addEventListener("click", function(){
+            console.log(inp.value);
+        // when click button, then print in console  which i take as input.
+        inp.value="";
+        // after add task , input string empty.
+     });
+    </script> -->
+
+    <!-- js code 2: how to add items in the list.
+     list a kivaba item add korbo?  -->
+
+     <script>
+        // this code add item one by one.
+         let btn=document.querySelector("button");
+        let ul =document.querySelector("ul");
+        let inp =document.querySelector("input");
+
+        btn.addEventListener("click", function (){
+            let item =document.createElement("li");
+            item.innerText =inp.value;
+            ul.appendChild(item);
+            console.log(inp.value); // print in console
+            inp.value="";
+
+        });
+     </script>
+
+     <!-- after add how can delete any item from ul .  -->
+</body>
+</html>

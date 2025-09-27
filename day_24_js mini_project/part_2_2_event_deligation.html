@@ -1,0 +1,259 @@
+<!-- use event deligation property
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<body>
+    <h1>Todo App</h1>
+    <input type="text" placeholder="enter your task"/>
+    <button>Add Task</button>
+    <ul>
+        <li>eat <button class="delete">delete</button></li>
+        <li>sleep <button class="delete">delete</button></li>
+    </ul>
+
+    <script>
+        let btn = document.querySelector("button");
+        let ul = document.querySelector("ul");
+        let inp = document.querySelector("input");
+
+        // Add task when clicking the button
+        btn.addEventListener("click", function () {
+            if (inp.value.trim() === "") return; // prevent empty tasks
+            // after click btn
+            // step1: create  a list or li
+            //step2: crate a delete button or delBtn
+            //step3: append delete button to li
+            // step 4: append li to ul
+            // step 5: add the  functionality of delBtn when
+
+            //  create li
+            let item = document.createElement("li");
+            item.innerText = inp.value + " ";
+
+            // create delete button
+            let delBtn = document.createElement("button");
+            delBtn.innerText = "delete";
+            delBtn.classList.add("delete");
+            // give an class delete of delBtn
+
+            // ✅ add delete functionality
+            delBtn.addEventListener("click", function () {
+                let par = this.parentElement;
+                // delBtn er paraent is li and we
+                //  delete the  specific list
+                par.remove();
+            });
+
+            // append delete button to li
+            item.appendChild(delBtn);
+
+            // append li to ul
+            ul.appendChild(item);
+
+            // clear input
+            inp.value = "";
+        });
+
+        // ✅ also fix existing delete buttons (eat, sleep)
+        // let delBtns = document.querySelectorAll(".delete");
+        // for (let delBtn of delBtns) {
+        //     delBtn.addEventListener("click", function () {
+        //         let par = this.parentElement;
+        //         console.log(par); // show parent.
+        //         par.remove();
+        //     });
+        // }
+
+        // it will not work for new element , but here work .
+
+        // we use event deliagation property , to solve this problem .
+
+        // NOTE: in button , eventListener , not work button.
+
+
+
+    </script>
+</body>
+</html> -->
+
+
+
+<!--
+✅ Now it works like this:
+
+You can add tasks by typing and pressing the Add Task button.
+
+Every task automatically gets a delete button.
+
+Clicking delete removes the correct <li>.
+
+Works for both existing and newly added tasks. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 40px;
+}
+
+input {
+  padding: 8px;
+  width: 200px;
+  font-size: 14px;
+}
+
+button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+ul {
+  margin-top: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 8px 0;
+}
+
+.delete {
+  margin-left: 10px;
+  color: white;
+  background-color: red;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Todo App</h1>
+  <input type="text" placeholder="Enter your task" />
+  <button>Add Task</button>
+
+  <ul>
+    <li>eat <button class="delete">delete</button></li>
+    <li>sleep <button class="delete">delete</button></li>
+  </ul>
+<!--
+  <script src="app.js"></script> -->
+  <script>
+    let btn = document.querySelector("button");
+let ul = document.querySelector("ul");
+let inp = document.querySelector("input");
+
+// after click btn
+ // step1: create  a list or li
+ //step2: crate a delete button or delBtn
+//step3: append delete button to li
+ // step 4: append li to ul
+ // step 5: add the  functionality of delBtn when
+ // Add new task
+
+btn.addEventListener("click", function () {
+  if (inp.value.trim() === "") return; // prevent empty tasks
+
+  let item = document.createElement("li");
+  item.innerText = inp.value;
+
+  let delBtn = document.createElement("button");
+  delBtn.innerText = "delete";
+  delBtn.classList.add("delete");
+
+  item.appendChild(delBtn);
+  ul.appendChild(item);
+
+  inp.value = "";
+});
+
+// Delete task using event delegation
+// ul.addEventListener("click", function (event) {
+//   if (event.target.nodeName === "BUTTON") {
+//     let listItem = event.target.parentElement;
+//     console.log(listItem);
+//     //
+//     listItem.remove();
+//     console.log("deleted");
+//   }
+// });
+
+
+
+
+ul.addEventListener("click", function (event) {
+   console.log("button clicked.");
+   // when delete button click ,then it will be print.
+
+
+//…question ::  =>.how to identify which item has been deleted?
+//ans:  ….we have to use :     console.log(even.target)
+
+    console.log(event.target);
+    // when delete button click then print ans:   <button class="delete">delete</button>
+
+    console.dir(event.target);
+    // it will print : button.delete property section where all button.delete property has.
+    //some preperty: name : "" ,namespaceURI: "http://www.w3.org/1999/xhtml" ,nextElementSibling : null ,nextSibling:null,nodeName:"BUTTON"
+   // nodeType:1,nodeValue:null,nonce:""
+   //...........so on .
+
+    console.log(event.target.nodeName);
+    // o.p:  BUTTON ( WHEN CLICK DELETE BUTTON ).
+
+
+
+
+
+
+
+   //note: here *** nodeName: "BUTTON"  , WHEN CLICK ON BUTTON.
+
+   // SO *** WE JUST SELECT THOSE *** WHOSE nodeName="BUTTON",
+
+
+   if(event.target.nodeName =="BUTTON"){
+    let listItem =event.target.parentElement;
+
+    console.log(listItem);
+
+    //PRINT: <li> "eat" <button class="delete"> delete </button> </li>
+
+
+    listItem.remove();
+    console.log("deleted.");
+   }
+
+});
+
+
+
+
+//   if (event.target.nodeName === "BUTTON") {
+//     let listItem = event.target.parentElement;
+//     console.log(listItem);
+//     //
+//     listItem.remove();
+//     console.log("deleted");
+//   }
+// });
+
+  </script>
+</body>
+</html>
